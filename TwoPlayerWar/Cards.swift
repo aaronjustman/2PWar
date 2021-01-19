@@ -5,6 +5,8 @@
 //  Created by Aaron Justman on 1/19/21.
 //
 
+// Totally promoted from https://codereview.stackexchange.com/a/219993
+
 import Foundation
 
 enum Suit: String, CaseIterable {

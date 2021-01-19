@@ -8,11 +8,6 @@
 import UIKit
 
 class WarVC: UIViewController {
-
-//    @IBOutlet weak var player1Label: UILabel!
-//    @IBOutlet weak var player2Label: UILabel!
-//    @IBOutlet weak var player3Label: UILabel!
-//    @IBOutlet weak var player3Cards: UILabel!
     
     @IBOutlet weak var player1Area: PlayerArea!
     @IBOutlet weak var player2Area: PlayerArea!
@@ -45,7 +40,18 @@ class WarVC: UIViewController {
         }
     }
 
-
+    @IBAction func p1Play(_ sender: UIButton) {
+        sender.isHidden = true
+        let card = deck.popLast()!
+        playedCard1Label.text = card.description
+    }
+    
+    @IBAction func p2Play(_ sender: UIButton) {
+        sender.isHidden = true
+        let card = deck.popLast()!
+        playedCard2Label.text = card.description
+    }
+    
     /*
     // MARK: - Navigation
 
