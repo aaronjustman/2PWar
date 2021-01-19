@@ -17,6 +17,7 @@
 		0028D4BB25A8EF75008BEADF /* WarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4B925A8EF75008BEADF /* WarVC.swift */; };
 		0028D4BE25A91414008BEADF /* PlayerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4BD25A91414008BEADF /* PlayerArea.swift */; };
 		0028D4C125A9145F008BEADF /* PlayerArea.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028D4C025A9145F008BEADF /* PlayerArea.xib */; };
+		00B00F5A25B7897100A95433 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B00F5925B7897100A95433 /* Cards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0028D4B925A8EF75008BEADF /* WarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarVC.swift; sourceTree = "<group>"; };
 		0028D4BD25A91414008BEADF /* PlayerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerArea.swift; sourceTree = "<group>"; };
 		0028D4C025A9145F008BEADF /* PlayerArea.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerArea.xib; sourceTree = "<group>"; };
+		00B00F5925B7897100A95433 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				0028D4B925A8EF75008BEADF /* WarVC.swift */,
 				0028D4BD25A91414008BEADF /* PlayerArea.swift */,
 				0028D4C025A9145F008BEADF /* PlayerArea.xib */,
+				00B00F5925B7897100A95433 /* Cards.swift */,
 				0028D4AB25A8EDFA008BEADF /* Assets.xcassets */,
 				0028D4AD25A8EDFA008BEADF /* LaunchScreen.storyboard */,
 				0028D4B025A8EDFA008BEADF /* Info.plist */,
@@ -154,6 +157,7 @@
 				0028D4A725A8EDF9008BEADF /* ViewController.swift in Sources */,
 				0028D4BB25A8EF75008BEADF /* WarVC.swift in Sources */,
 				0028D4A325A8EDF9008BEADF /* AppDelegate.swift in Sources */,
+				00B00F5A25B7897100A95433 /* Cards.swift in Sources */,
 				0028D4BE25A91414008BEADF /* PlayerArea.swift in Sources */,
 				0028D4A525A8EDF9008BEADF /* SceneDelegate.swift in Sources */,
 			);

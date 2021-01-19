@@ -21,6 +21,8 @@ class WarVC: UIViewController {
     @IBOutlet weak var play1Button: UIButton!
     @IBOutlet weak var play2Button: UIButton!
     
+    var deck = [Card]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,9 +37,12 @@ class WarVC: UIViewController {
         playedCard2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-//        player2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-//        player3Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-//        player3Cards.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        for suit in Suit.allCases {
+            for rank in Rank.allCases {
+                let newCard = Card(suit: suit, rank: rank)
+                deck.append(newCard)
+            }
+        }
     }
 
 
