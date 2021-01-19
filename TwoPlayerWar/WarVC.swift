@@ -16,6 +16,8 @@ class WarVC: UIViewController {
     
     @IBOutlet weak var player1Area: PlayerArea!
     @IBOutlet weak var player2Area: PlayerArea!
+    @IBOutlet weak var playedCard1Label: UILabel!
+    @IBOutlet weak var playedCard2Label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

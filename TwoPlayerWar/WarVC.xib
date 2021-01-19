@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
+                <outlet property="playedCard1Label" destination="Vwo-qN-QQ1" id="wbK-id-KiV"/>
+                <outlet property="playedCard2Label" destination="gKW-Ss-4RW" id="nnc-B2-vUR"/>
                 <outlet property="player1Area" destination="YYR-Qe-MZi" id="l8M-p8-wFm"/>
                 <outlet property="player2Area" destination="w88-7J-Eyt" id="07Y-qd-DTY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="2EE-ap-Zgl"/>
@@ -20,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYR-Qe-MZi" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYR-Qe-MZi" userLabel="Player Area 1" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="787" width="414" height="75"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="414" id="PpW-9B-y8N"/>
@@ -31,7 +33,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w88-7J-Eyt" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w88-7J-Eyt" userLabel="Player Area 2" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="E7T-fI-bv1"/>
@@ -42,6 +44,24 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKW-Ss-4RW">
+                    <rect key="frame" x="103" y="294" width="208" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="W5q-z4-sph"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-qN-QQ1">
+                    <rect key="frame" x="105" y="569" width="204" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="aN6-h4-EOv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,11 +69,15 @@
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0db-TA-7qd"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0nI-0a-5Ei"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
+                <constraint firstItem="gKW-Ss-4RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5GQ-UY-QTh"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OQK-Da-4VK"/>
+                <constraint firstItem="Vwo-qN-QQ1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q4E-DM-hcc"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QMP-zi-8vi"/>
+                <constraint firstItem="YYR-Qe-MZi" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="175" id="QWn-KF-wIL"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
+                <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
