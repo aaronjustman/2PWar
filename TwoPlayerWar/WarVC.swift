@@ -14,13 +14,19 @@ class WarVC: UIViewController {
 //    @IBOutlet weak var player3Label: UILabel!
 //    @IBOutlet weak var player3Cards: UILabel!
     
-    @IBOutlet weak var playerArea: PlayerArea!
+    @IBOutlet weak var player1Area: PlayerArea!
+    @IBOutlet weak var player2Area: PlayerArea!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //print("did load?")
+        
+        player2Area.playerNameLabel.text = "Player 2"
+        player1Area.cardsLeftLabel.text = "26"
+        player2Area.cardsLeftLabel.text = "26"
+        player2Area.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
 //        player2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
 //        player3Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)

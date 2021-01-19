@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
+                <outlet property="player1Area" destination="YYR-Qe-MZi" id="l8M-p8-wFm"/>
+                <outlet property="player2Area" destination="w88-7J-Eyt" id="07Y-qd-DTY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="2EE-ap-Zgl"/>
             </connections>
         </placeholder>
@@ -18,51 +20,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEE-EB-fGj">
-                    <rect key="frame" x="20" y="826" width="100" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlF-Vm-q7f">
-                    <rect key="frame" x="206" y="164" width="104" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gp-kq-PRo">
-                    <rect key="frame" x="128" y="809" width="58" height="58"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                    <color key="textColor" systemColor="systemIndigoColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6M-vy-GTt">
-                    <rect key="frame" x="112" y="649" width="105" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q71-rI-Lep">
-                    <rect key="frame" x="220" y="632" width="57" height="58"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                    <color key="textColor" systemColor="systemIndigoColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-Y9-FPl">
-                    <rect key="frame" x="140" y="164" width="55" height="58"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                    <color key="textColor" systemColor="systemIndigoColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYR-Qe-MZi" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="411" width="414" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYR-Qe-MZi" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="787" width="414" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="414" id="PpW-9B-y8N"/>
+                        <constraint firstAttribute="height" constant="75" id="oQf-Pz-dY8"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="playerName" value="Player 1"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w88-7J-Eyt" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="E7T-fI-bv1"/>
+                        <constraint firstAttribute="width" constant="414" id="fq8-Qz-Qu9"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="playerName" value="Player 1"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
@@ -71,15 +45,22 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="YYR-Qe-MZi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0db-TA-7qd"/>
+                <constraint firstItem="YYR-Qe-MZi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0nI-0a-5Ei"/>
+                <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
+                <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
+                <constraint firstItem="w88-7J-Eyt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OQK-Da-4VK"/>
+                <constraint firstItem="w88-7J-Eyt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QMP-zi-8vi"/>
+                <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
+                <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
