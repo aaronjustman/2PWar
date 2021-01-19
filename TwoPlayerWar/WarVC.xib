@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
+                <outlet property="play1Button" destination="yhU-sI-Tcz" id="zkR-4f-dml"/>
+                <outlet property="play2Button" destination="8Y7-YS-NGh" id="4GM-cS-0ch"/>
                 <outlet property="playedCard1Label" destination="Vwo-qN-QQ1" id="wbK-id-KiV"/>
                 <outlet property="playedCard2Label" destination="gKW-Ss-4RW" id="nnc-B2-vUR"/>
                 <outlet property="player1Area" destination="YYR-Qe-MZi" id="l8M-p8-wFm"/>
@@ -44,15 +46,6 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKW-Ss-4RW">
-                    <rect key="frame" x="103" y="294" width="208" height="43"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="43" id="W5q-z4-sph"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-qN-QQ1">
                     <rect key="frame" x="105" y="569" width="204" height="43"/>
                     <constraints>
@@ -62,14 +55,44 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKW-Ss-4RW">
+                    <rect key="frame" x="103" y="294" width="208" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="W5q-z4-sph"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhU-sI-Tcz">
+                    <rect key="frame" x="175.5" y="662" width="63" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="63" id="MR7-He-Kc0"/>
+                        <constraint firstAttribute="height" constant="41" id="O9A-WM-2mv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="PLAY!"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Y7-YS-NGh">
+                    <rect key="frame" x="175.5" y="203" width="63" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="8oY-Js-AYe"/>
+                        <constraint firstAttribute="width" constant="63" id="Q4x-1a-cDS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="PLAY!"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0db-TA-7qd"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0nI-0a-5Ei"/>
+                <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="50" id="1bN-VP-bQv"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5GQ-UY-QTh"/>
+                <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
+                <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OQK-Da-4VK"/>
                 <constraint firstItem="Vwo-qN-QQ1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q4E-DM-hcc"/>
@@ -78,6 +101,7 @@
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
+                <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="8Y7-YS-NGh" secondAttribute="bottom" constant="50" id="zAC-fu-I5Q"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
