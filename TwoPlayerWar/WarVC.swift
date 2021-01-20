@@ -15,6 +15,7 @@ class WarVC: UIViewController {
     @IBOutlet weak var playedCard2Label: UILabel!
     @IBOutlet weak var play1Button: UIButton!
     @IBOutlet weak var play2Button: UIButton!
+    @IBOutlet weak var winLabel: UILabel!
     
     var deck = [Card]()
     
@@ -25,12 +26,18 @@ class WarVC: UIViewController {
     var p1DidPlay = false
     var p2DidPlay = false
     var turnIsOver = false
+    var isFacingP1 = true
+    
+    var card1 = Card(suit: .clubs, rank: .two)
+    var card2 = Card(suit: .clubs, rank: .two)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //print("did load?")
+        
+        winLabel.isHidden = true
         
         for suit in Suit.allCases {
             for rank in Rank.allCases {
@@ -41,7 +48,7 @@ class WarVC: UIViewController {
         deck.shuffle()
         
         deal()
-        turnIsOver = p1DidPlay && p2DidPlay
+        //turnIsOver = p1DidPlay && p2DidPlay
         
         player1Area.cardsLeftLabel.text = String(player1.count)
         
@@ -53,21 +60,27 @@ class WarVC: UIViewController {
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
-        sender.isHidden = true
-        let card = deck.popLast()!
-        playedCard1Label.text = card.description
-        //p1DidPlay = true
-        
         if turnIsOver { resetForNextTurn() }
+        else {
+            //sender.isHidden = true
+            card1 = player1.popLast()! //deck.popLast()!
+            playedCard1Label.text = card1.description
+            p1DidPlay = true
+            turnIsOver = p1DidPlay && p2DidPlay
+        }
+        if turnIsOver { evaluateCards() }
     }
     
     @IBAction func p2Play(_ sender: UIButton) {
-        sender.isHidden = true
-        let card = deck.popLast()!
-        playedCard2Label.text = card.description
-        //p2DidPlay = true
-        
         if turnIsOver { resetForNextTurn() }
+        else {
+            //sender.isHidden = true
+            card2 = player2.popLast()!
+            playedCard2Label.text = card2.description
+            p2DidPlay = true
+            turnIsOver = p1DidPlay && p2DidPlay
+        }
+        if turnIsOver { evaluateCards() }
     }
     
     func deal() {
@@ -78,23 +91,38 @@ class WarVC: UIViewController {
         }
     }
     
-    func evaluateCards(card1: Card, card2: Card) {
+    func evaluateCards() {
+        print("card1:", card1.description, "card2:", card2.description)
         if card1.rank.cardValue > card2.rank.cardValue {
-            
+            if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi) }
+            isFacingP1 = true
+            winLabel.isHidden = false
+            player1.insert(contentsOf: [card1, card2], at: 0)
+            //card1 = nil
+            //card2 = nil
         } else if card2.rank.cardValue > card1.rank.cardValue {
-            
+            if isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }
+            isFacingP1 = false
+            //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            winLabel.isHidden = false
+            player2.insert(contentsOf: [card1, card2], at: 0)
         } else if card1.rank.cardValue == card2.rank.cardValue {
-            
+            print("WAR!")
         }
     }
     
+//    func displayWinLabel() {
+//        winLabel.isHidden = false
+//    }
+    
     func resetForNextTurn() {
-        play1Button.isHidden = false
-        play2Button.isHidden = false
+        //play1Button.isHidden = false
+        //play2Button.isHidden = false
         playedCard1Label.text = ""
         playedCard2Label.text = ""
         p1DidPlay = false
         p2DidPlay = false
+        winLabel.isHidden = true
         turnIsOver = false
     }
     

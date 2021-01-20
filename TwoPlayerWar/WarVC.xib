@@ -17,6 +17,7 @@
                 <outlet property="player1Area" destination="YYR-Qe-MZi" id="l8M-p8-wFm"/>
                 <outlet property="player2Area" destination="w88-7J-Eyt" id="07Y-qd-DTY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="2EE-ap-Zgl"/>
+                <outlet property="winLabel" destination="xoV-mI-U3x" id="iee-rA-OWz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -88,6 +89,16 @@
                         <action selector="p2Play:" destination="-1" eventType="touchUpInside" id="7iX-JT-vl2"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-mI-U3x">
+                    <rect key="frame" x="155.5" y="419" width="103" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="103" id="8r8-cX-7yY"/>
+                        <constraint firstAttribute="height" constant="58" id="qsR-X4-pdv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <color key="textColor" systemColor="systemPinkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,6 +108,7 @@
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="50" id="1bN-VP-bQv"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5GQ-UY-QTh"/>
+                <constraint firstItem="xoV-mI-U3x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6JX-E8-u8D"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
                 <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
@@ -105,6 +117,7 @@
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QMP-zi-8vi"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="175" id="QWn-KF-wIL"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
+                <constraint firstItem="xoV-mI-U3x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hLj-Ng-gbj"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="8Y7-YS-NGh" secondAttribute="bottom" constant="50" id="zAC-fu-I5Q"/>
@@ -115,6 +128,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
