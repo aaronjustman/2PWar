@@ -30,6 +30,41 @@ enum Rank: String, CaseIterable {
     case queen = "Queen"
     case king = "King"
     case ace = "Ace"
+    
+    var cardValue: Int {
+        var value = 0
+        
+        switch self {
+        case .two:
+            value = 2
+        case .three:
+            value = 3
+        case .four:
+            value = 4
+        case .five:
+            value = 5
+        case .six:
+            value = 6
+        case .seven:
+            value = 7
+        case .eight:
+            value = 8
+        case .nine:
+            value = 9
+        case .ten:
+            value = 10
+        case .jack:
+            value = 11
+        case .queen:
+            value = 12
+        case .king:
+            value = 13
+        case .ace:
+            value = 14
+        }
+        
+        return value
+    }
 }
 
 struct Card {
