@@ -27,6 +27,9 @@ class WarVC: UIViewController {
     var p2DidPlay = false
     var turnIsOver = false
     var isFacingP1 = true
+    var p1DidPlayWar = false
+    var p2DidPlayWar = false
+    var warIsOver = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -85,6 +88,32 @@ class WarVC: UIViewController {
         if turnIsOver { evaluateCards() }
     }
     
+    @objc func p1PlayWar() {
+        if warIsOver { resetForNextTurn() }
+        else {
+            //sender.isHidden = true
+            card1 = player1.popLast()! //deck.popLast()!
+            playedCard1Label.text = card1.description
+            player1Area.cardsLeft = String(player1.count)
+            p1DidPlayWar = true
+            warIsOver = p1DidPlayWar && p2DidPlayWar
+        }
+        if warIsOver { evaluateCards() }
+    }
+    
+    @objc func p2PlayWar() {
+        if warIsOver { resetForNextTurn() }
+        else {
+            //sender.isHidden = true
+            card2 = player2.popLast()! //deck.popLast()!
+            playedCard2Label.text = card1.description
+            player2Area.cardsLeft = String(player1.count)
+            p2DidPlayWar = true
+            warIsOver = p1DidPlayWar && p2DidPlayWar
+        }
+        if warIsOver { evaluateCards() }
+    }
+    
     func deal() {
         var cardIterator = deck.makeIterator()
         while let nextCard = cardIterator.next() {
@@ -114,6 +143,18 @@ class WarVC: UIViewController {
             player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
             print("WAR!")
+            winLabel.text = "WAR!"
+            winLabel.isHidden = false
+            
+            play1Button.setTitle("WAR!", for: .normal)
+            play1Button.setTitleColor(.red, for: .normal)
+            play1Button.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+            play1Button.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+            
+            play2Button.setTitle("WAR!", for: .normal)
+            play2Button.setTitleColor(.red, for: .normal)
+            play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+            play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
         }
     }
     
@@ -124,11 +165,29 @@ class WarVC: UIViewController {
     func resetForNextTurn() {
         //play1Button.isHidden = false
         //play2Button.isHidden = false
+        
+        if warIsOver {
+            p1DidPlayWar = false
+            p2DidPlayWar = false
+            warIsOver = false
+            
+            play1Button.setTitle("Play!", for: .normal)
+            play1Button.setTitleColor(.blue, for: .normal)
+            play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+            play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+            
+            play2Button.setTitle("Play!", for: .normal)
+            play2Button.setTitleColor(.blue, for: .normal)
+            play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+            play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+        }
+        
         playedCard1Label.text = ""
         playedCard2Label.text = ""
         p1DidPlay = false
         p2DidPlay = false
         winLabel.isHidden = true
+        winLabel.text = "WIN!"
         turnIsOver = false
     }
     
