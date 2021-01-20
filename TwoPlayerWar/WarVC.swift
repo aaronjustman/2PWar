@@ -65,6 +65,7 @@ class WarVC: UIViewController {
             //sender.isHidden = true
             card1 = player1.popLast()! //deck.popLast()!
             playedCard1Label.text = card1.description
+            player1Area.cardsLeft = String(player1.count)
             p1DidPlay = true
             turnIsOver = p1DidPlay && p2DidPlay
         }
@@ -77,6 +78,7 @@ class WarVC: UIViewController {
             //sender.isHidden = true
             card2 = player2.popLast()!
             playedCard2Label.text = card2.description
+            player2Area.cardsLeft = String(player2.count)
             p2DidPlay = true
             turnIsOver = p1DidPlay && p2DidPlay
         }
@@ -94,10 +96,12 @@ class WarVC: UIViewController {
     func evaluateCards() {
         print("card1:", card1.description, "card2:", card2.description)
         if card1.rank.cardValue > card2.rank.cardValue {
-            if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi) }
+            if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
+            player1Area.cardsLeft = String(player1.count)
+            //player2Area.cardsLeft = String(player2.count)
             //card1 = nil
             //card2 = nil
         } else if card2.rank.cardValue > card1.rank.cardValue {
@@ -106,6 +110,8 @@ class WarVC: UIViewController {
             //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
+            //player1Area.cardsLeft = String(player1.count)
+            player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
             print("WAR!")
         }
