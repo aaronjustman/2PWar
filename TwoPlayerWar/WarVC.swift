@@ -33,6 +33,7 @@ class WarVC: UIViewController {
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
+    var warCards = [Card]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,9 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
+            warCards.append(player1.popLast()!)
+            warCards.append(player1.popLast()!)
+            warCards.append(player1.popLast()!)
             card1 = player1.popLast()! //deck.popLast()!
             playedCard1Label.text = card1.description
             player1Area.cardsLeft = String(player1.count)
@@ -105,6 +109,9 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
+            warCards.append(player2.popLast()!)
+            warCards.append(player2.popLast()!)
+            warCards.append(player2.popLast()!)
             card2 = player2.popLast()! //deck.popLast()!
             playedCard2Label.text = card2.description
             player2Area.cardsLeft = String(player2.count)
@@ -127,8 +134,13 @@ class WarVC: UIViewController {
         if card1.rank.cardValue > card2.rank.cardValue {
             if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
+            winLabel.text = "Win!"
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
+            if !warCards.isEmpty {
+                player1.insert(contentsOf: warCards, at: 0)
+                warCards.removeAll()
+            }
             player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
             //card1 = nil
@@ -139,10 +151,18 @@ class WarVC: UIViewController {
             //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
+            if !warCards.isEmpty {
+                player2.insert(contentsOf: warCards, at: 0)
+                warCards.removeAll()
+            }
             //player1Area.cardsLeft = String(player1.count)
             player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
             print("WAR!")
+            warIsOver = false
+            p1DidPlayWar = false
+            p2DidPlayWar = false
+            
             winLabel.text = "WAR!"
             winLabel.isHidden = false
             
