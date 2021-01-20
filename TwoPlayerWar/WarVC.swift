@@ -106,8 +106,8 @@ class WarVC: UIViewController {
         else {
             //sender.isHidden = true
             card2 = player2.popLast()! //deck.popLast()!
-            playedCard2Label.text = card1.description
-            player2Area.cardsLeft = String(player1.count)
+            playedCard2Label.text = card2.description
+            player2Area.cardsLeft = String(player2.count)
             p2DidPlayWar = true
             warIsOver = p1DidPlayWar && p2DidPlayWar
         }
