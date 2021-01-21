@@ -236,6 +236,21 @@ class WarVC: UIViewController {
         turnIsOver = false
     }
     
+    func gameOver(for player: String) {
+        print("Game over! \(player) loses!")
+        player1.removeAll()
+        player2.removeAll()
+        warCards.removeAll()
+        cardForP1 = true
+        p1DidPlay = false
+        p2DidPlay = false
+        turnIsOver = false
+        isFacingP1 = true
+        p1DidPlayWar = false
+        p2DidPlayWar = false
+        warIsOver = false
+    }
+    
     /*
     // MARK: - Navigation
 
