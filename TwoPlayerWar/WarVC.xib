@@ -92,7 +92,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-mI-U3x">
                     <rect key="frame" x="155.5" y="419" width="103" height="58"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="103" id="8r8-cX-7yY"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="8r8-cX-7yY"/>
                         <constraint firstAttribute="height" constant="58" id="qsR-X4-pdv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
