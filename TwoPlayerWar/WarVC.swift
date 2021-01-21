@@ -98,14 +98,24 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
-            warCards.append(player1.popLast()!)
-            warCards.append(player1.popLast()!)
-            warCards.append(player1.popLast()!)
-            card1 = player1.popLast()! //deck.popLast()!
-            playedCard1Label.text = card1.description
-            player1Area.cardsLeft = String(player1.count)
-            p1DidPlayWar = true
-            warIsOver = p1DidPlayWar && p2DidPlayWar
+            var cardsToAdd = 3
+            while cardsToAdd > 0 {
+                if let nextCard = player1.popLast() {
+                    warCards.append(nextCard)
+                    cardsToAdd -= 1
+                }
+            }
+            //warCards.append(player1.popLast()!)
+            //warCards.append(player1.popLast()!)
+            //warCards.append(player1.popLast()!)
+            if let nextCard = player1.popLast() {
+                card1 = nextCard
+                //card1 = player1.popLast()! //deck.popLast()!
+                playedCard1Label.text = card1.description
+                player1Area.cardsLeft = String(player1.count)
+                p1DidPlayWar = true
+                warIsOver = p1DidPlayWar && p2DidPlayWar
+            }
         }
         if warIsOver { evaluateCards() }
     }
@@ -114,14 +124,24 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
-            warCards.append(player2.popLast()!)
-            warCards.append(player2.popLast()!)
-            warCards.append(player2.popLast()!)
-            card2 = player2.popLast()! //deck.popLast()!
-            playedCard2Label.text = card2.description
-            player2Area.cardsLeft = String(player2.count)
-            p2DidPlayWar = true
-            warIsOver = p1DidPlayWar && p2DidPlayWar
+            var cardsToAdd = 3
+            while cardsToAdd > 0 {
+                if let nextCard = player2.popLast() {
+                    warCards.append(nextCard)
+                    cardsToAdd -= 1
+                }
+            }
+            //warCards.append(player2.popLast()!)
+            //warCards.append(player2.popLast()!)
+            //warCards.append(player2.popLast()!)
+            //card2 = player2.popLast()! //deck.popLast()!
+            if let nextCard = player2.popLast() {
+                card2 = nextCard
+                playedCard2Label.text = card2.description
+                player2Area.cardsLeft = String(player2.count)
+                p2DidPlayWar = true
+                warIsOver = p1DidPlayWar && p2DidPlayWar
+            }
         }
         if warIsOver { evaluateCards() }
     }
