@@ -101,6 +101,7 @@ class WarVC: UIViewController {
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
+                    print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 }
@@ -109,6 +110,8 @@ class WarVC: UIViewController {
             //warCards.append(player1.popLast()!)
             //warCards.append(player1.popLast()!)
             if let nextCard = player1.popLast() {
+                // update card count labels here?
+                
                 card1 = nextCard
                 //card1 = player1.popLast()! //deck.popLast()!
                 playedCard1Label.text = card1.description
@@ -127,6 +130,7 @@ class WarVC: UIViewController {
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
+                    print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 }
@@ -136,6 +140,8 @@ class WarVC: UIViewController {
             //warCards.append(player2.popLast()!)
             //card2 = player2.popLast()! //deck.popLast()!
             if let nextCard = player2.popLast() {
+                // update card count labels here?
+                
                 card2 = nextCard
                 playedCard2Label.text = card2.description
                 player2Area.cardsLeft = String(player2.count)
@@ -156,6 +162,10 @@ class WarVC: UIViewController {
     
     func evaluateCards() {
         print("card1:", card1.description, "card2:", card2.description)
+        
+        player1Area.cardsLeft = String(player1.count)
+        player2Area.cardsLeft = String(player2.count)
+        
         if card1.rank.cardValue > card2.rank.cardValue {
             if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
@@ -163,10 +173,12 @@ class WarVC: UIViewController {
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
+                print("War cards:", warCards)
+                print("There should be ten war cards:", warCards.count)
                 player1.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
-            player1Area.cardsLeft = String(player1.count)
+            //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
             //card1 = nil
             //card2 = nil
@@ -177,11 +189,13 @@ class WarVC: UIViewController {
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
+                print("War cards:", warCards)
+                print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
             //player1Area.cardsLeft = String(player1.count)
-            player2Area.cardsLeft = String(player2.count)
+            //player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
             print("WAR!")
             warIsOver = false
@@ -190,6 +204,9 @@ class WarVC: UIViewController {
             
             winLabel.text = "WAR!"
             winLabel.isHidden = false
+            
+            warCards.append(card1)
+            warCards.append(card2)
             
             play1Button.setTitle("WAR!", for: .normal)
             play1Button.setTitleColor(.red, for: .normal)
@@ -210,6 +227,8 @@ class WarVC: UIViewController {
     func resetForNextTurn() {
         //play1Button.isHidden = false
         //play2Button.isHidden = false
+        player1Area.cardsLeft = String(player1.count)
+        player2Area.cardsLeft = String(player2.count)
         
         if warIsOver {
             p1DidPlayWar = false
