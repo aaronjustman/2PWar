@@ -67,11 +67,14 @@ class WarVC: UIViewController {
         if turnIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
-            card1 = player1.popLast()! //deck.popLast()!
-            playedCard1Label.text = card1.description
-            player1Area.cardsLeft = String(player1.count)
-            p1DidPlay = true
-            turnIsOver = p1DidPlay && p2DidPlay
+            //card1 = player1.popLast()! //deck.popLast()!
+            if let nextCard = player1.popLast() {
+                card1 = nextCard
+                playedCard1Label.text = card1.description
+                player1Area.cardsLeft = String(player1.count)
+                p1DidPlay = true
+                turnIsOver = p1DidPlay && p2DidPlay
+            }
         }
         if turnIsOver { evaluateCards() }
     }
@@ -80,11 +83,13 @@ class WarVC: UIViewController {
         if turnIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
-            card2 = player2.popLast()!
-            playedCard2Label.text = card2.description
-            player2Area.cardsLeft = String(player2.count)
-            p2DidPlay = true
-            turnIsOver = p1DidPlay && p2DidPlay
+            if let nextCard = player2.popLast() {
+                card2 = nextCard
+                playedCard2Label.text = card2.description
+                player2Area.cardsLeft = String(player2.count)
+                p2DidPlay = true
+                turnIsOver = p1DidPlay && p2DidPlay
+            }
         }
         if turnIsOver { evaluateCards() }
     }
