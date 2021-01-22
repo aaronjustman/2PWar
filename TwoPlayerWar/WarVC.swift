@@ -68,6 +68,7 @@ class WarVC: UIViewController {
         else {
             //sender.isHidden = true
             //card1 = player1.popLast()! //deck.popLast()!
+            play1Button.isEnabled = false
             if let nextCard = player1.popLast() {
                 card1 = nextCard
                 playedCard1Label.text = card1.description
@@ -83,6 +84,7 @@ class WarVC: UIViewController {
         if turnIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
+            play2Button.isEnabled = false
             if let nextCard = player2.popLast() {
                 card2 = nextCard
                 playedCard2Label.text = card2.description
@@ -98,10 +100,12 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
+            play1Button.isEnabled = false
+            
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
-                    print("Adding", nextCard.description, "to  war cards:", warCards)
+                    //print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 }
@@ -127,10 +131,12 @@ class WarVC: UIViewController {
         if warIsOver { resetForNextTurn() }
         else {
             //sender.isHidden = true
+            play2Button.isEnabled = false
+            
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
-                    print("Adding", nextCard.description, "to  war cards:", warCards)
+                    //print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 }
@@ -161,7 +167,7 @@ class WarVC: UIViewController {
     }
     
     func evaluateCards() {
-        print("card1:", card1.description, "card2:", card2.description)
+        //print("card1:", card1.description, "card2:", card2.description)
         
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
@@ -173,8 +179,8 @@ class WarVC: UIViewController {
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
-                print("War cards:", warCards)
-                print("There should be ten war cards:", warCards.count)
+                //print("War cards:", warCards)
+                //print("There should be ten war cards:", warCards.count)
                 player1.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
@@ -189,15 +195,16 @@ class WarVC: UIViewController {
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
-                print("War cards:", warCards)
-                print("There should be ten war cards:", warCards.count)
+                //print("War cards:", warCards)
+                //print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
-            print("WAR!")
+            //print("WAR!")
+            
             warIsOver = false
             p1DidPlayWar = false
             p2DidPlayWar = false
@@ -217,7 +224,12 @@ class WarVC: UIViewController {
             play2Button.setTitleColor(.red, for: .normal)
             play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
             play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+            
+            
         }
+        
+        play1Button.isEnabled = true
+        play2Button.isEnabled = true
     }
     
 //    func displayWinLabel() {
@@ -253,6 +265,9 @@ class WarVC: UIViewController {
         winLabel.isHidden = true
         winLabel.text = "WIN!"
         turnIsOver = false
+        
+        play1Button.isEnabled = true
+        play2Button.isEnabled = true
     }
     
     func gameOver(for player: String) {
