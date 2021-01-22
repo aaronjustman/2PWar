@@ -16,6 +16,9 @@ class WarVC: UIViewController {
     @IBOutlet weak var play1Button: UIButton!
     @IBOutlet weak var play2Button: UIButton!
     @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var p1ResultLabel: UILabel!
+    @IBOutlet weak var p2ResultLabel: UILabel!
+    @IBOutlet weak var againButton: UIButton!
     
     var deck = [Card]()
     
@@ -61,6 +64,7 @@ class WarVC: UIViewController {
         player2Area.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         playedCard2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
@@ -94,6 +98,29 @@ class WarVC: UIViewController {
             }
         }
         if turnIsOver { evaluateCards() }
+    }
+    
+    @IBAction func playAgain() {
+        player1.removeAll()
+        player2.removeAll()
+        warCards.removeAll()
+        cardForP1 = true
+        p1DidPlay = false
+        p2DidPlay = false
+        turnIsOver = false
+        isFacingP1 = true
+        p1DidPlayWar = false
+        p2DidPlayWar = false
+        warIsOver = false
+        winLabel.text = "Win!"
+        p1ResultLabel.isHidden = true
+        p2ResultLabel.isHidden = true
+        againButton.isHidden = true
+        
+        deck.shuffle()
+        deal()
+        player1Area.cardsLeft = String(player1.count)
+        player2Area.cardsLeft = String(player2.count)
     }
     
     @objc func p1PlayWar() {
@@ -277,18 +304,26 @@ class WarVC: UIViewController {
     
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
-        player1.removeAll()
-        player2.removeAll()
-        warCards.removeAll()
-        cardForP1 = true
-        p1DidPlay = false
-        p2DidPlay = false
-        turnIsOver = false
-        isFacingP1 = true
-        p1DidPlayWar = false
-        p2DidPlayWar = false
-        warIsOver = false
-        winLabel.text = "Win!"
+        
+        if player == "Player 1" {
+            p1ResultLabel.text = "LOSE"
+            p1ResultLabel.textColor = .red
+            p1ResultLabel.isHidden = false
+            
+            p2ResultLabel.text = "WIN"
+            p2ResultLabel.textColor = .green
+            p2ResultLabel.isHidden = false
+        } else {
+            p1ResultLabel.text = "WIN"
+            p1ResultLabel.textColor = .green
+            p1ResultLabel.isHidden = false
+            
+            p2ResultLabel.text = "LOSE"
+            p2ResultLabel.textColor = .red
+            p2ResultLabel.isHidden = false
+        }
+        
+        againButton.isHidden = false
     }
     
     /*

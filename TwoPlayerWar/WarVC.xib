@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
+                <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
+                <outlet property="p1ResultLabel" destination="Gl5-VP-fCp" id="gW4-pZ-jjC"/>
+                <outlet property="p2ResultLabel" destination="I7H-fS-LQy" id="PE7-Ek-WY8"/>
                 <outlet property="play1Button" destination="yhU-sI-Tcz" id="zkR-4f-dml"/>
                 <outlet property="play2Button" destination="8Y7-YS-NGh" id="4GM-cS-0ch"/>
                 <outlet property="playedCard1Label" destination="Vwo-qN-QQ1" id="wbK-id-KiV"/>
@@ -99,6 +102,38 @@
                     <color key="textColor" systemColor="systemPinkColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN / LOSE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl5-VP-fCp">
+                    <rect key="frame" x="-29" y="497" width="472" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="472" id="Nb4-SA-UEt"/>
+                        <constraint firstAttribute="height" constant="115" id="Rqz-bB-uMz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN / LOSE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7H-fS-LQy">
+                    <rect key="frame" x="-29" y="222" width="472" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="472" id="CpZ-MU-OKf"/>
+                        <constraint firstAttribute="height" constant="115" id="sCG-T8-Aeb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmM-dD-TNm">
+                    <rect key="frame" x="141.5" y="413" width="131" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="131" id="ZKl-PE-HPu"/>
+                        <constraint firstAttribute="height" constant="70" id="kQS-13-Wz6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <state key="normal" title="Again!"/>
+                    <connections>
+                        <action selector="playAgain" destination="-1" eventType="touchUpInside" id="hMd-3S-9T2"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -107,8 +142,11 @@
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0nI-0a-5Ei"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="50" id="1bN-VP-bQv"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
+                <constraint firstItem="SmM-dD-TNm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3a4-iI-2QJ"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5GQ-UY-QTh"/>
+                <constraint firstItem="Gl5-VP-fCp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6It-y3-g59"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6JX-E8-u8D"/>
+                <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Gl5-VP-fCp" secondAttribute="bottom" constant="50" id="8Lo-YH-mzc"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
                 <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
@@ -116,7 +154,10 @@
                 <constraint firstItem="Vwo-qN-QQ1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q4E-DM-hcc"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QMP-zi-8vi"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="top" secondItem="Vwo-qN-QQ1" secondAttribute="bottom" constant="175" id="QWn-KF-wIL"/>
+                <constraint firstItem="I7H-fS-LQy" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="103" id="RO7-U1-GbW"/>
+                <constraint firstItem="SmM-dD-TNm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TlI-Vu-lAi"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
+                <constraint firstItem="I7H-fS-LQy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLv-YY-zD0"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hLj-Ng-gbj"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
