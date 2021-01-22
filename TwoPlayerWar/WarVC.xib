@@ -68,7 +68,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhU-sI-Tcz">
                     <rect key="frame" x="175.5" y="662" width="63" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="63" id="MR7-He-Kc0"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="MR7-He-Kc0"/>
                         <constraint firstAttribute="height" constant="41" id="O9A-WM-2mv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -81,7 +81,7 @@
                     <rect key="frame" x="175.5" y="203" width="63" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="8oY-Js-AYe"/>
-                        <constraint firstAttribute="width" constant="63" id="Q4x-1a-cDS"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="Q4x-1a-cDS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="PLAY!"/>
