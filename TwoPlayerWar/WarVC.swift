@@ -218,11 +218,13 @@ class WarVC: UIViewController {
             
             play1Button.setTitle("WAR!", for: .normal)
             play1Button.setTitleColor(.red, for: .normal)
+            play1Button.setTitleColor(.lightGray, for: .disabled)
             play1Button.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
             play1Button.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
             
             play2Button.setTitle("WAR!", for: .normal)
             play2Button.setTitleColor(.red, for: .normal)
+            play2Button.setTitleColor(.lightGray, for: .disabled)
             play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
             play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
             
@@ -250,11 +252,13 @@ class WarVC: UIViewController {
             
             play1Button.setTitle("Play!", for: .normal)
             play1Button.setTitleColor(.blue, for: .normal)
+            play1Button.setTitleColor(.lightGray, for: .disabled)
             play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
             play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
             
             play2Button.setTitle("Play!", for: .normal)
             play2Button.setTitleColor(.blue, for: .normal)
+            play2Button.setTitleColor(.lightGray, for: .disabled)
             play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
             play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
         }
@@ -264,7 +268,7 @@ class WarVC: UIViewController {
         p1DidPlay = false
         p2DidPlay = false
         winLabel.isHidden = true
-        winLabel.text = "WIN!"
+        winLabel.text = "Win!"
         turnIsOver = false
         
         play1Button.isEnabled = true
@@ -284,6 +288,7 @@ class WarVC: UIViewController {
         p1DidPlayWar = false
         p2DidPlayWar = false
         warIsOver = false
+        winLabel.text = "Win!"
     }
     
     /*
