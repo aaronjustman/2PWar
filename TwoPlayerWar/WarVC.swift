@@ -79,7 +79,7 @@ class WarVC: UIViewController {
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
-            }
+            } else { gameOver(for: "Player 1") }
         }
         if turnIsOver { evaluateCards() }
     }
@@ -95,7 +95,7 @@ class WarVC: UIViewController {
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
-            }
+            } else { gameOver(for: "Player 2") }
         }
         if turnIsOver { evaluateCards() }
     }
@@ -135,7 +135,7 @@ class WarVC: UIViewController {
                     //print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                }
+                } else { gameOver(for: "Player 1") }
             }
             //warCards.append(player1.popLast()!)
             //warCards.append(player1.popLast()!)
@@ -149,7 +149,7 @@ class WarVC: UIViewController {
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
-            }
+            } else { gameOver(for: "Player 1") }
         }
         if warIsOver { evaluateCards() }
     }
@@ -166,7 +166,7 @@ class WarVC: UIViewController {
                     //print("Adding", nextCard.description, "to  war cards:", warCards)
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                }
+                } else { gameOver(for: "Player 2") }
             }
             //warCards.append(player2.popLast()!)
             //warCards.append(player2.popLast()!)
@@ -180,12 +180,15 @@ class WarVC: UIViewController {
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
-            }
+            } else { gameOver(for: "Player 2") }
         }
         if warIsOver { evaluateCards() }
     }
     
     func deal() {
+//        for c in 0...45 {
+//            deck.popLast()
+//        }
         var cardIterator = deck.makeIterator()
         while let nextCard = cardIterator.next() {
             if cardForP1 {  player1.append(nextCard)  } else {  player2.append(nextCard) }
