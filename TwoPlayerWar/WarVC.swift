@@ -175,7 +175,7 @@ class WarVC: UIViewController {
         if card1.rank.cardValue > card2.rank.cardValue {
             if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
-            winLabel.text = "Win!"
+            if winLabel.text != "Win!" { winLabel.text = "Win!" }
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
@@ -192,6 +192,7 @@ class WarVC: UIViewController {
             if isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }
             isFacingP1 = false
             //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            if winLabel.text != "Win!" { winLabel.text = "Win!" }
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
