@@ -120,6 +120,18 @@ class WarVC: UIViewController {
         p2ResultLabel.isHidden = true
         againButton.isHidden = true
         
+        play1Button.setTitle("Play!", for: .normal)
+        play1Button.setTitleColor(.blue, for: .normal)
+        play1Button.setTitleColor(.lightGray, for: .disabled)
+        play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+        play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+        
+        play2Button.setTitle("Play!", for: .normal)
+        play2Button.setTitleColor(.blue, for: .normal)
+        play2Button.setTitleColor(.lightGray, for: .disabled)
+        play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+        play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+        
         deck.shuffle()
         deal()
         player1Area.cardsLeft = String(player1.count)
