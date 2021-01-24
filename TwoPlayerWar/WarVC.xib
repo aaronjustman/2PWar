@@ -125,7 +125,7 @@
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmM-dD-TNm">
                     <rect key="frame" x="141.5" y="413" width="131" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="131" id="ZKl-PE-HPu"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="131" id="ZKl-PE-HPu"/>
                         <constraint firstAttribute="height" constant="70" id="kQS-13-Wz6"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
