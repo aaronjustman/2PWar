@@ -113,6 +113,9 @@ class WarVC: UIViewController {
         p2DidPlayWar = false
         warIsOver = false
         winLabel.text = "Win!"
+        winLabel.isHidden = true
+        playedCard1Label.text = ""
+        playedCard2Label.text = ""
         p1ResultLabel.isHidden = true
         p2ResultLabel.isHidden = true
         againButton.isHidden = true
