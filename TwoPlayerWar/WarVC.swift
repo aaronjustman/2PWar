@@ -65,6 +65,8 @@ class WarVC: UIViewController {
         playedCard2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
+        gameOver(for: "Player 2")
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
@@ -125,12 +127,14 @@ class WarVC: UIViewController {
         play1Button.setTitleColor(.lightGray, for: .disabled)
         play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
         play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+        play1Button.isEnabled = true
         
         play2Button.setTitle("Play!", for: .normal)
         play2Button.setTitleColor(.blue, for: .normal)
         play2Button.setTitleColor(.lightGray, for: .disabled)
         play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
         play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+        play2Button.isEnabled = true
         
         deck.shuffle()
         deal()
