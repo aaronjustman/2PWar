@@ -66,7 +66,7 @@ class WarVC: UIViewController {
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-        gameOver(for: "Player 2")
+        //gameOver(for: "Player 2")
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
@@ -77,7 +77,7 @@ class WarVC: UIViewController {
             play1Button.isEnabled = false
             if let nextCard = player1.popLast() {
                 card1 = nextCard
-                playedCard1Label.text = card1.description
+                playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
@@ -93,7 +93,7 @@ class WarVC: UIViewController {
             play2Button.isEnabled = false
             if let nextCard = player2.popLast() {
                 card2 = nextCard
-                playedCard2Label.text = card2.description
+                playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
@@ -276,8 +276,6 @@ class WarVC: UIViewController {
             play2Button.setTitleColor(.lightGray, for: .disabled)
             play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
             play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-            
-            
         }
         
         play1Button.isEnabled = true

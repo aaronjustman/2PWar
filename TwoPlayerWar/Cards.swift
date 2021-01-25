@@ -14,6 +14,23 @@ enum Suit: String, CaseIterable {
     case diamonds = "Diamonds"
     case hearts = "Hearts"
     case spades = "Spades"
+    
+    var emoji: String {
+        var emoji = ""
+        
+        switch self {
+        case .clubs:
+            emoji = "♣️"
+        case .diamonds:
+            emoji = "♦️"
+        case .hearts:
+            emoji = "♥️"
+        case .spades:
+            emoji = "♠️"
+        }
+        
+        return emoji
+    }
 }
 
 enum Rank: String, CaseIterable {
@@ -30,6 +47,41 @@ enum Rank: String, CaseIterable {
     case queen = "Queen"
     case king = "King"
     case ace = "Ace"
+    
+    var cardNumber: String {
+        var number = ""
+        
+        switch self {
+        case .two:
+            number = "2"
+        case .three:
+            number = "3"
+        case .four:
+            number = "4"
+        case .five:
+            number = "5"
+        case .six:
+            number = "6"
+        case .seven:
+            number = "8"
+        case .eight:
+            number = "8"
+        case .nine:
+            number = "9"
+        case .ten:
+            number = "10"
+        case .jack:
+            number = "J"
+        case .queen:
+            number = "Q"
+        case .king:
+            number = "K"
+        case .ace:
+            number = "A"
+        }
+        
+        return number
+    }
     
     var cardValue: Int {
         var value = 0
