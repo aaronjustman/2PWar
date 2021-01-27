@@ -242,12 +242,6 @@ class WarVC: UIViewController {
                 //print("There should be ten war cards:", warCards.count)
                 player1.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
-                p1WarCardsStack.isHidden = true
-                for view in p1WarCardsStack.arrangedSubviews {
-                    if let label = view as? UILabel {
-                        label.text = ""
-                    }
-                }
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
@@ -266,12 +260,8 @@ class WarVC: UIViewController {
                 //print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
-                p2WarCardsStack.isHidden = true
-                for view in p2WarCardsStack.arrangedSubviews {
-                    if let label = view as? UILabel {
-                        label.text = ""
-                    }
-                }
+                player1.insert(contentsOf: warCards, at: 0)
+                warCards.removeAll()
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
@@ -321,6 +311,20 @@ class WarVC: UIViewController {
             p1DidPlayWar = false
             p2DidPlayWar = false
             warIsOver = false
+            
+            p1WarCardsStack.isHidden = true
+            for view in p1WarCardsStack.arrangedSubviews {
+                if let label = view as? UILabel {
+                    label.text = ""
+                }
+            }
+            
+            p2WarCardsStack.isHidden = true
+            for view in p2WarCardsStack.arrangedSubviews {
+                if let label = view as? UILabel {
+                    label.text = ""
+                }
+            }
             
             play1Button.setTitle("Play!", for: .normal)
             play1Button.setTitleColor(.blue, for: .normal)
