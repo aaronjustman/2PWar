@@ -122,11 +122,17 @@ enum Rank: String, CaseIterable {
 struct Card {
     let suit: Suit
     let rank: Rank
+    
+    static let useEmojiDescription = true
 }
 
 extension Card: CustomStringConvertible {
     var description: String {
-        return rank.rawValue + " of " + suit.rawValue
+        if Card.useEmojiDescription {
+            return "\(self.rank.cardNumber)\(self.suit.emoji)"
+        } else {
+            return rank.rawValue + " of " + suit.rawValue
+        }
     }
 }
 

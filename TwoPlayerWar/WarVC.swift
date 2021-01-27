@@ -19,7 +19,9 @@ class WarVC: UIViewController {
     @IBOutlet weak var p1ResultLabel: UILabel!
     @IBOutlet weak var p2ResultLabel: UILabel!
     @IBOutlet weak var againButton: UIButton!
+    @IBOutlet weak var p1WarCardsStack: UIStackView!
     @IBOutlet weak var p2WarCardsStack: UIStackView!
+    @IBOutlet weak var p1WarCard1Label: UILabel!
     
     var deck = [Card]()
     
@@ -154,6 +156,8 @@ class WarVC: UIViewController {
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
                     //print("Adding", nextCard.description, "to  war cards:", warCards)
+                    let warCardLabel = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
+                    warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1") }
@@ -185,6 +189,9 @@ class WarVC: UIViewController {
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
                     //print("Adding", nextCard.description, "to  war cards:", warCards)
+                    //p1WarCard1Label.text = nextCard.description
+                    let warCardLabel = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
+                    warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2") }
@@ -226,7 +233,8 @@ class WarVC: UIViewController {
         if card1.rank.cardValue > card2.rank.cardValue {
             if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
-            if winLabel.text != "Win!" { winLabel.text = "Win!" }
+            //if winLabel.text != "Win!" { winLabel.text = "Win!" }
+            winLabel.text = "Win!"
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
@@ -234,6 +242,12 @@ class WarVC: UIViewController {
                 //print("There should be ten war cards:", warCards.count)
                 player1.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
+                p1WarCardsStack.isHidden = true
+                for view in p1WarCardsStack.arrangedSubviews {
+                    if let label = view as? UILabel {
+                        label.text = ""
+                    }
+                }
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
@@ -243,7 +257,8 @@ class WarVC: UIViewController {
             if isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }
             isFacingP1 = false
             //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-            if winLabel.text != "Win!" { winLabel.text = "Win!" }
+            //if winLabel.text != "Win!" { winLabel.text = "Win!" }
+            winLabel.text = "Win!"
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
@@ -251,6 +266,12 @@ class WarVC: UIViewController {
                 //print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
+                p2WarCardsStack.isHidden = true
+                for view in p2WarCardsStack.arrangedSubviews {
+                    if let label = view as? UILabel {
+                        label.text = ""
+                    }
+                }
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
@@ -263,6 +284,8 @@ class WarVC: UIViewController {
             
             winLabel.text = "WAR!"
             winLabel.isHidden = false
+            p1WarCardsStack.isHidden = false
+            p2WarCardsStack.isHidden = false
             
             warCards.append(card1)
             warCards.append(card2)
