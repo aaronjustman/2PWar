@@ -260,8 +260,6 @@ class WarVC: UIViewController {
                 //print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
-                player1.insert(contentsOf: warCards, at: 0)
-                warCards.removeAll()
             }
             //player1Area.cardsLeft = String(player1.count)
             //player2Area.cardsLeft = String(player2.count)
