@@ -70,6 +70,9 @@ class WarVC: UIViewController {
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
+        //print("Player 1:", player1)
+        //print("Player 2:", player2)
+        
         //gameOver(for: "Player 2")
     }
 
@@ -219,13 +222,17 @@ class WarVC: UIViewController {
 //        }
         var cardIterator = deck.makeIterator()
         while let nextCard = cardIterator.next() {
-            if cardForP1 {  player1.append(nextCard)  } else {  player2.append(nextCard) }
+            if cardForP1 {
+                //print(nextCard.description, "for P1")
+                player1.append(nextCard)  } else {
+                    //print(nextCard.description, "for P2")
+                    player2.append(nextCard) }
             cardForP1.toggle()
         }
     }
     
     func evaluateCards() {
-        //print("card1:", card1.description, "card2:", card2.description)
+        print("card1:", card1.description, "card2:", card2.description)
         
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
@@ -302,6 +309,8 @@ class WarVC: UIViewController {
     func resetForNextTurn() {
         //play1Button.isHidden = false
         //play2Button.isHidden = false
+        print("Player 1:", player1)
+        print("Player 2:", player2)
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
         

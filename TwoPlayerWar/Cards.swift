@@ -63,7 +63,7 @@ enum Rank: String, CaseIterable {
         case .six:
             number = "6"
         case .seven:
-            number = "8"
+            number = "7"
         case .eight:
             number = "8"
         case .nine:
