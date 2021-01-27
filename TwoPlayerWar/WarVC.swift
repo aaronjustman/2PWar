@@ -232,7 +232,7 @@ class WarVC: UIViewController {
     }
     
     func evaluateCards() {
-        print("card1:", card1.description, "card2:", card2.description)
+        //print("card1:", card1.description, "card2:", card2.description)
         
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
@@ -309,8 +309,8 @@ class WarVC: UIViewController {
     func resetForNextTurn() {
         //play1Button.isHidden = false
         //play2Button.isHidden = false
-        print("Player 1:", player1)
-        print("Player 2:", player2)
+        //print("Player 1:", player1)
+        //print("Player 2:", player2)
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
         
