@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
                 <outlet property="p1ResultLabel" destination="Gl5-VP-fCp" id="gW4-pZ-jjC"/>
-                <outlet property="p1WarCard1Label" destination="hWW-r3-sk1" id="NJB-gQ-PC1"/>
                 <outlet property="p1WarCardsStack" destination="mbH-Rs-1Yw" id="0TR-jX-SER"/>
                 <outlet property="p2ResultLabel" destination="I7H-fS-LQy" id="PE7-Ek-WY8"/>
                 <outlet property="p2WarCardsStack" destination="Aww-UW-fyX" id="qty-m6-nvj"/>

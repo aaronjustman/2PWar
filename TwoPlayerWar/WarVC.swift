@@ -21,7 +21,6 @@ class WarVC: UIViewController {
     @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var p1WarCardsStack: UIStackView!
     @IBOutlet weak var p2WarCardsStack: UIStackView!
-    @IBOutlet weak var p1WarCard1Label: UILabel!
     
     var deck = [Card]()
     
