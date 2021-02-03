@@ -192,13 +192,19 @@
                         <constraint firstAttribute="height" constant="20.5" id="XKG-Mz-BkI"/>
                     </constraints>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-HN-y2b" userLabel="P1 card">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-HN-y2b" userLabel="P1 card">
                     <rect key="frame" x="87" y="497" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="Nf7-lh-Lzg"/>
+                        <constraint firstAttribute="height" constant="128" id="xqw-An-cue"/>
+                    </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-d7-iDm" userLabel="P2 card">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-d7-iDm" userLabel="P2 card">
                     <rect key="frame" x="87" y="277" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="RMt-cU-StM"/>
+                        <constraint firstAttribute="width" constant="240" id="vb8-ya-0eb"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -225,12 +231,16 @@
                 <constraint firstItem="I7H-fS-LQy" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="103" id="RO7-U1-GbW"/>
                 <constraint firstItem="SmM-dD-TNm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TlI-Vu-lAi"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uql-rG-o69"/>
+                <constraint firstItem="d5G-d7-iDm" firstAttribute="centerX" secondItem="xoV-mI-U3x" secondAttribute="centerX" id="Xg1-IH-ALK"/>
+                <constraint firstItem="wdL-HN-y2b" firstAttribute="centerX" secondItem="xoV-mI-U3x" secondAttribute="centerX" id="YAm-g9-v0j"/>
+                <constraint firstItem="xoV-mI-U3x" firstAttribute="top" secondItem="d5G-d7-iDm" secondAttribute="bottom" constant="14" id="amh-kG-oUX"/>
                 <constraint firstItem="I7H-fS-LQy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLv-YY-zD0"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hLj-Ng-gbj"/>
                 <constraint firstItem="mbH-Rs-1Yw" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="hhv-fg-EjI"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
                 <constraint firstItem="Aww-UW-fyX" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="oRw-dO-Ks1"/>
+                <constraint firstItem="wdL-HN-y2b" firstAttribute="top" secondItem="xoV-mI-U3x" secondAttribute="bottom" constant="20" id="xnP-Ij-RBA"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="8Y7-YS-NGh" secondAttribute="bottom" constant="50" id="zAC-fu-I5Q"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
