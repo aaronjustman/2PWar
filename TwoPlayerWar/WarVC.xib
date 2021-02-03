@@ -192,7 +192,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0db-TA-7qd"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0nI-0a-5Ei"/>
@@ -227,9 +227,6 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
