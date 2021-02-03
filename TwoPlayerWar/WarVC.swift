@@ -42,9 +42,6 @@ class WarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //print("did load?")
         
         winLabel.isHidden = true
         
@@ -57,7 +54,6 @@ class WarVC: UIViewController {
         deck.shuffle()
         
         deal()
-        //turnIsOver = p1DidPlay && p2DidPlay
         
         player1Area.cardsLeftLabel.text = String(player1.count)
         
@@ -68,18 +64,11 @@ class WarVC: UIViewController {
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        
-        //print("Player 1:", player1)
-        //print("Player 2:", player2)
-        
-        //gameOver(for: "Player 2")
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
         if turnIsOver { resetForNextTurn() }
         else {
-            //sender.isHidden = true
-            //card1 = player1.popLast()! //deck.popLast()!
             play1Button.isEnabled = false
             if let nextCard = player1.popLast() {
                 card1 = nextCard
@@ -95,7 +84,6 @@ class WarVC: UIViewController {
     @IBAction func p2Play(_ sender: UIButton) {
         if turnIsOver { resetForNextTurn() }
         else {
-            //sender.isHidden = true
             play2Button.isEnabled = false
             if let nextCard = player2.popLast() {
                 card2 = nextCard
@@ -151,27 +139,19 @@ class WarVC: UIViewController {
     @objc func p1PlayWar() {
         if warIsOver { resetForNextTurn() }
         else {
-            //sender.isHidden = true
             play1Button.isEnabled = false
             
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
-                    //print("Adding", nextCard.description, "to  war cards:", warCards)
                     let warCardLabel = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
                     warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1") }
             }
-            //warCards.append(player1.popLast()!)
-            //warCards.append(player1.popLast()!)
-            //warCards.append(player1.popLast()!)
             if let nextCard = player1.popLast() {
-                // update card count labels here?
-                
                 card1 = nextCard
-                //card1 = player1.popLast()! //deck.popLast()!
                 playedCard1Label.text = card1.description
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlayWar = true
@@ -184,27 +164,18 @@ class WarVC: UIViewController {
     @objc func p2PlayWar() {
         if warIsOver { resetForNextTurn() }
         else {
-            //sender.isHidden = true
             play2Button.isEnabled = false
             
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
-                    //print("Adding", nextCard.description, "to  war cards:", warCards)
-                    //p1WarCard1Label.text = nextCard.description
                     let warCardLabel = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
                     warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2") }
             }
-            //warCards.append(player2.popLast()!)
-            //warCards.append(player2.popLast()!)
-            //warCards.append(player2.popLast()!)
-            //card2 = player2.popLast()! //deck.popLast()!
             if let nextCard = player2.popLast() {
-                // update card count labels here?
-                
                 card2 = nextCard
                 playedCard2Label.text = card2.description
                 player2Area.cardsLeft = String(player2.count)
@@ -216,62 +187,38 @@ class WarVC: UIViewController {
     }
     
     func deal() {
-//        for c in 0...45 {
-//            deck.popLast()
-//        }
         var cardIterator = deck.makeIterator()
         while let nextCard = cardIterator.next() {
-            if cardForP1 {
-                //print(nextCard.description, "for P1")
-                player1.append(nextCard)  } else {
-                    //print(nextCard.description, "for P2")
-                    player2.append(nextCard) }
+            if cardForP1 { player1.append(nextCard)  } else { player2.append(nextCard) }
             cardForP1.toggle()
         }
     }
     
     func evaluateCards() {
-        //print("card1:", card1.description, "card2:", card2.description)
-        
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
         
         if card1.rank.cardValue > card2.rank.cardValue {
             if !isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.zero) }
             isFacingP1 = true
-            //if winLabel.text != "Win!" { winLabel.text = "Win!" }
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
-                //print("War cards:", warCards)
-                //print("There should be ten war cards:", warCards.count)
                 player1.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
-            //player1Area.cardsLeft = String(player1.count)
-            //player2Area.cardsLeft = String(player2.count)
-            //card1 = nil
-            //card2 = nil
         } else if card2.rank.cardValue > card1.rank.cardValue {
             if isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }
             isFacingP1 = false
-            //winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-            //if winLabel.text != "Win!" { winLabel.text = "Win!" }
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
             if !warCards.isEmpty {
-                //print("War cards:", warCards)
-                //print("There should be ten war cards:", warCards.count)
                 player2.insert(contentsOf: warCards, at: 0)
                 warCards.removeAll()
             }
-            //player1Area.cardsLeft = String(player1.count)
-            //player2Area.cardsLeft = String(player2.count)
         } else if card1.rank.cardValue == card2.rank.cardValue {
-            //print("WAR!")
-            
             warIsOver = false
             p1DidPlayWar = false
             p2DidPlayWar = false
@@ -301,15 +248,7 @@ class WarVC: UIViewController {
         play2Button.isEnabled = true
     }
     
-//    func displayWinLabel() {
-//        winLabel.isHidden = false
-//    }
-    
     func resetForNextTurn() {
-        //play1Button.isHidden = false
-        //play2Button.isHidden = false
-        //print("Player 1:", player1)
-        //print("Player 2:", player2)
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
         
