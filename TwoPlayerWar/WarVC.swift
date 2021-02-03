@@ -75,7 +75,8 @@ class WarVC: UIViewController {
             play1Button.isEnabled = false
             if let nextCard = player1.popLast() {
                 card1 = nextCard
-                playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
+                //playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
+                p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
@@ -90,7 +91,8 @@ class WarVC: UIViewController {
             play2Button.isEnabled = false
             if let nextCard = player2.popLast() {
                 card2 = nextCard
-                playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
+                //playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
+                p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)")
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
