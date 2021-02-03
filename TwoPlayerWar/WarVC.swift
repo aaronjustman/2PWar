@@ -21,6 +21,8 @@ class WarVC: UIViewController {
     @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var p1WarCardsStack: UIStackView!
     @IBOutlet weak var p2WarCardsStack: UIStackView!
+    @IBOutlet weak var p1CardIV: UIImageView!
+    @IBOutlet weak var p2CardIV: UIImageView!
     
     var deck = [Card]()
     
@@ -64,6 +66,7 @@ class WarVC: UIViewController {
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
 
     @IBAction func p1Play(_ sender: UIButton) {

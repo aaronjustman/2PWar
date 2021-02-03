@@ -12,8 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
                 <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
+                <outlet property="p1CardIV" destination="wdL-HN-y2b" id="t4H-lV-Tb9"/>
                 <outlet property="p1ResultLabel" destination="Gl5-VP-fCp" id="gW4-pZ-jjC"/>
                 <outlet property="p1WarCardsStack" destination="mbH-Rs-1Yw" id="0TR-jX-SER"/>
+                <outlet property="p2CardIV" destination="d5G-d7-iDm" id="MIs-Y9-Moq"/>
                 <outlet property="p2ResultLabel" destination="I7H-fS-LQy" id="PE7-Ek-WY8"/>
                 <outlet property="p2WarCardsStack" destination="Aww-UW-fyX" id="qty-m6-nvj"/>
                 <outlet property="play1Button" destination="yhU-sI-Tcz" id="zkR-4f-dml"/>
@@ -190,6 +192,14 @@
                         <constraint firstAttribute="height" constant="20.5" id="XKG-Mz-BkI"/>
                     </constraints>
                 </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-HN-y2b" userLabel="P1 card">
+                    <rect key="frame" x="87" y="497" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ace-clubs" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-d7-iDm" userLabel="P2 card">
+                    <rect key="frame" x="87" y="277" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -227,6 +237,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ace-clubs" width="67.333335876464844" height="34"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
