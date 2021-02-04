@@ -140,25 +140,27 @@ class WarVC: UIViewController, PlayButtonDelegate {
         warIsOver = false
         winLabel.text = "Win!"
         winLabel.isHidden = true
-        playedCard1Label.text = ""
-        playedCard2Label.text = ""
+        //playedCard1Label.text = ""
+        //playedCard2Label.text = ""
+        p1CardIV.image = .none
+        p2CardIV.image = .none
         p1ResultLabel.isHidden = true
         p2ResultLabel.isHidden = true
         againButton.isHidden = true
         
-        play1Button.setTitle("Play!", for: .normal)
-        play1Button.setTitleColor(.blue, for: .normal)
-        play1Button.setTitleColor(.lightGray, for: .disabled)
-        play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-        play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-        play1Button.isEnabled = true
-        
-        play2Button.setTitle("Play!", for: .normal)
-        play2Button.setTitleColor(.blue, for: .normal)
-        play2Button.setTitleColor(.lightGray, for: .disabled)
-        play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-        play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
-        play2Button.isEnabled = true
+//        play1Button.setTitle("Play!", for: .normal)
+//        play1Button.setTitleColor(.blue, for: .normal)
+//        play1Button.setTitleColor(.lightGray, for: .disabled)
+//        play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+//        play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+//        play1Button.isEnabled = true
+//
+//        play2Button.setTitle("Play!", for: .normal)
+//        play2Button.setTitleColor(.blue, for: .normal)
+//        play2Button.setTitleColor(.lightGray, for: .disabled)
+//        play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+//        play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+//        play2Button.isEnabled = true
         
         deck.shuffle()
         deal()
@@ -174,15 +176,15 @@ class WarVC: UIViewController, PlayButtonDelegate {
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
-                    let warCardLabel = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
-                    warCardLabel.text = nextCard.description
+                    let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
+                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)") //warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1") }
             }
             if let nextCard = player1.popLast() {
                 card1 = nextCard
-                playedCard1Label.text = card1.description
+                p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")//playedCard1Label.text = card1.description
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
@@ -199,15 +201,15 @@ class WarVC: UIViewController, PlayButtonDelegate {
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
-                    let warCardLabel = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UILabel
-                    warCardLabel.text = nextCard.description
+                    let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
+                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2") }
             }
             if let nextCard = player2.popLast() {
                 card2 = nextCard
-                playedCard2Label.text = card2.description
+                p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)") //playedCard2Label.text = card2.description
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
@@ -290,35 +292,46 @@ class WarVC: UIViewController, PlayButtonDelegate {
             p2DidPlayWar = false
             warIsOver = false
             
-            p1WarCardsStack.isHidden = true
+//            p1WarCardsStack.isHidden = true
+//            for view in p1WarCardsStack.arrangedSubviews {
+//                if let label = view as? UILabel {
+//                    label.text = ""
+//                }
+//            }
+//
+//            p2WarCardsStack.isHidden = true
+//            for view in p2WarCardsStack.arrangedSubviews {
+//                if let label = view as? UILabel {
+//                    label.text = ""
+//                }
+//            }
+//
+//            play1Button.setTitle("Play!", for: .normal)
+//            play1Button.setTitleColor(.blue, for: .normal)
+//            play1Button.setTitleColor(.lightGray, for: .disabled)
+//            play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+//            play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+//
+//            play2Button.setTitle("Play!", for: .normal)
+//            play2Button.setTitleColor(.blue, for: .normal)
+//            play2Button.setTitleColor(.lightGray, for: .disabled)
+//            play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+//            play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+            
             for view in p1WarCardsStack.arrangedSubviews {
-                if let label = view as? UILabel {
-                    label.text = ""
-                }
+                let imageView = view as! UIImageView
+                imageView.image = .none
             }
-            
-            p2WarCardsStack.isHidden = true
             for view in p2WarCardsStack.arrangedSubviews {
-                if let label = view as? UILabel {
-                    label.text = ""
-                }
+                let imageView = view as! UIImageView
+                imageView.image = .none
             }
-            
-            play1Button.setTitle("Play!", for: .normal)
-            play1Button.setTitleColor(.blue, for: .normal)
-            play1Button.setTitleColor(.lightGray, for: .disabled)
-            play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-            play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-            
-            play2Button.setTitle("Play!", for: .normal)
-            play2Button.setTitleColor(.blue, for: .normal)
-            play2Button.setTitleColor(.lightGray, for: .disabled)
-            play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-            play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
         }
         
-        playedCard1Label.text = ""
-        playedCard2Label.text = ""
+        //playedCard1Label.text = ""
+        //playedCard2Label.text = ""
+        p1CardIV.image = .none
+        p2CardIV.image = .none
         p1DidPlay = false
         p2DidPlay = false
         winLabel.isHidden = true
