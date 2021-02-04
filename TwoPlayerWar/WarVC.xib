@@ -150,6 +150,20 @@
                         <constraint firstAttribute="width" constant="240" id="vb8-ya-0eb"/>
                     </constraints>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-BT-zCv">
+                    <rect key="frame" x="106" y="633" width="202" height="34"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-bL-a11">
+                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="jPy-bo-Mu8">
+                            <rect key="frame" x="67.5" y="0.0" width="67" height="34"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-yL-xLV">
+                            <rect key="frame" x="134.5" y="0.0" width="67.5" height="34"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,6 +178,7 @@
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6JX-E8-u8D"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Gl5-VP-fCp" secondAttribute="bottom" constant="50" id="8Lo-YH-mzc"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
+                <constraint firstItem="2Lg-BT-zCv" firstAttribute="width" secondItem="wdL-HN-y2b" secondAttribute="width" multiplier="0.841667" id="9vG-Bf-Dms"/>
                 <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OQK-Da-4VK"/>
@@ -179,7 +194,9 @@
                 <constraint firstItem="I7H-fS-LQy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLv-YY-zD0"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hLj-Ng-gbj"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
+                <constraint firstItem="2Lg-BT-zCv" firstAttribute="centerX" secondItem="wdL-HN-y2b" secondAttribute="centerX" id="koe-hd-rsF"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
+                <constraint firstItem="2Lg-BT-zCv" firstAttribute="top" secondItem="wdL-HN-y2b" secondAttribute="bottom" constant="8" symbolic="YES" id="pcP-aM-e3X"/>
                 <constraint firstItem="wdL-HN-y2b" firstAttribute="top" secondItem="xoV-mI-U3x" secondAttribute="bottom" constant="20" id="xnP-Ij-RBA"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="8Y7-YS-NGh" secondAttribute="bottom" constant="50" id="zAC-fu-I5Q"/>
             </constraints>
@@ -188,6 +205,7 @@
     </objects>
     <resources>
         <image name="ace-clubs" width="67.333335876464844" height="34"/>
+        <image name="ace-diamonds" width="67.333335876464844" height="34"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
