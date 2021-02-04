@@ -4,12 +4,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
                 <outlet property="cardsLeftLabel" destination="Mz6-SS-20U" id="DLE-3i-qpM"/>
+                <outlet property="playButton" destination="sQq-KB-ARx" id="5jU-ov-U6p"/>
                 <outlet property="playerNameLabel" destination="6Th-8I-rO2" id="Mgq-Md-hmg"/>
             </connections>
         </placeholder>
@@ -47,11 +49,20 @@
                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <size key="shadowOffset" width="1" height="2"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-KB-ARx" userLabel="Play button">
+                    <rect key="frame" x="295" y="17.5" width="97" height="46"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" systemColor="systemRedColor"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.63529411764705879" green="0.84313725490196079" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="6Th-8I-rO2" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-5" id="1Hu-vL-LKb"/>
+                <constraint firstItem="sQq-KB-ARx" firstAttribute="centerX" secondItem="j7y-xc-aDu" secondAttribute="centerX" id="3Ye-Ds-Kxj"/>
+                <constraint firstItem="sQq-KB-ARx" firstAttribute="centerY" secondItem="j7y-xc-aDu" secondAttribute="centerY" id="6cR-4Z-qy8"/>
                 <constraint firstItem="Mz6-SS-20U" firstAttribute="bottom" secondItem="j7y-xc-aDu" secondAttribute="bottom" id="HZA-nw-LuI"/>
                 <constraint firstItem="6Th-8I-rO2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="83" id="Huk-qw-DD7"/>
                 <constraint firstItem="j7y-xc-aDu" firstAttribute="bottom" secondItem="6Th-8I-rO2" secondAttribute="bottom" id="Sde-ex-rmq"/>
@@ -67,5 +78,8 @@
     <resources>
         <image name="deck-blue" width="67.333335876464844" height="39.666667938232422"/>
         <image name="face-right" width="27" height="27"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

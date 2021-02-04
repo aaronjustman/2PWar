@@ -58,9 +58,11 @@ class WarVC: UIViewController {
         deal()
         
         player1Area.cardsLeftLabel.text = String(player1.count)
+        player1Area.playButton.setTitle("", for: .normal)
         
         player2Area.playerNameLabel.text = "Player 2"
         player2Area.cardsLeftLabel.text = String(player2.count)
+        player2Area.playButton.setTitle("", for: .normal)
         player2Area.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         playedCard2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)

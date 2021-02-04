@@ -11,6 +11,7 @@ import UIKit
 
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var cardsLeftLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     
     @IBInspectable var playerName: String = "New Player" {
         willSet {
