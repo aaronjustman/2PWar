@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WarVC: UIViewController {
+class WarVC: UIViewController, PlayButtonDelegate {
     
     @IBOutlet weak var player1Area: PlayerArea!
     @IBOutlet weak var player2Area: PlayerArea!
@@ -69,6 +69,17 @@ class WarVC: UIViewController {
         p2ResultLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+    }
+    
+    func play(for player: String) {
+        switch player {
+        case "Player 1":
+            <#code#>
+        case "Player 2":
+            return
+        default:
+            return
+        }
     }
 
     @IBAction func p1Play(_ sender: UIButton) {

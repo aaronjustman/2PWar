@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PlayButtonDelegate {
+    func play(for: String)
+}
+
 @IBDesignable class PlayerArea: UIView {
 
     @IBOutlet weak var playerNameLabel: UILabel!
@@ -23,6 +27,9 @@ import UIKit
             cardsLeftLabel.text = newValue
         }
     }
+    
+    var playerNumber = 0
+    var delegate: PlayButtonDelegate!
         
     /*
     // Only override draw() if you perform custom drawing.
@@ -31,6 +38,10 @@ import UIKit
         // Drawing code
     }
     */
+    
+    @IBAction func play() {
+        (playerNumber == 1) ? delegate.play(for: "Player 1") : delegate.play(for: "Player 2")
+    }
     
     override class func awakeFromNib() {
         super.awakeFromNib()
