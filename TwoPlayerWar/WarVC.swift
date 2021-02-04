@@ -36,7 +36,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false
     var p2DidPlayWar = false
-    var warIsOver = false
+    var warIsOver = true
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -95,10 +95,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
+        print("P1 playing...")
         if turnIsOver { resetForNextTurn() }
         else {
             //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
+            let im = UIImage(imageLiteralResourceName: "deck-gray")
+            player1Area.playButton.setImage(im, for: .disabled)
             if let nextCard = player1.popLast() {
                 card1 = nextCard
                 //playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
@@ -112,10 +115,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @IBAction func p2Play(_ sender: UIButton) {
+        print("P2 playing...")
         if turnIsOver { resetForNextTurn() }
         else {
             //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
+            let im = UIImage(imageLiteralResourceName: "deck-gray")
+            player2Area.playButton.setImage(im, for: .disabled)
             if let nextCard = player2.popLast() {
                 card2 = nextCard
                 //playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
@@ -171,9 +177,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p1PlayWar() {
+        print("P1 playing war...")
         if warIsOver { resetForNextTurn() }
         else {
-            play1Button.isEnabled = false
+            //play1Button.isEnabled = false
+            player1Area.playButton.isEnabled = false
+            let im = UIImage(imageLiteralResourceName: "deck-gray")
+            player1Area.playButton.setImage(im, for: .disabled)
             
             var cardsToAdd = 3
             while cardsToAdd > 0 {
@@ -196,9 +206,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p2PlayWar() {
+        print("P2 playing war...")
         if warIsOver { resetForNextTurn() }
         else {
-            play2Button.isEnabled = false
+            //play2Button.isEnabled = false
+            player2Area.playButton.isEnabled = false
+            let im = UIImage(imageLiteralResourceName: "deck-gray")
+            player2Area.playButton.setImage(im, for: .disabled)
             
             var cardsToAdd = 3
             while cardsToAdd > 0 {
@@ -343,7 +357,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         //play1Button.isEnabled = true
         //play2Button.isEnabled = true
         player1Area.playButton.isEnabled = true
+        let im = UIImage(imageLiteralResourceName: "deck-blue")
+        player1Area.playButton.setImage(im, for: .normal)
         player2Area.playButton.isEnabled = true
+        player2Area.playButton.setImage(im, for: .normal)
     }
     
     func gameOver(for player: String) {

@@ -55,6 +55,9 @@
                     <state key="normal" title="Button">
                         <color key="titleColor" systemColor="systemRedColor"/>
                     </state>
+                    <connections>
+                        <action selector="play" destination="-1" eventType="touchUpInside" id="ydS-4Y-Hr9"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
