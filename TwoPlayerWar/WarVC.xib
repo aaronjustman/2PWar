@@ -13,8 +13,10 @@
                 <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
                 <outlet property="p1CardIV" destination="wdL-HN-y2b" id="t4H-lV-Tb9"/>
                 <outlet property="p1ResultLabel" destination="Gl5-VP-fCp" id="gW4-pZ-jjC"/>
+                <outlet property="p1WarCardsStack" destination="2Lg-BT-zCv" id="AmU-Hg-kOu"/>
                 <outlet property="p2CardIV" destination="d5G-d7-iDm" id="MIs-Y9-Moq"/>
                 <outlet property="p2ResultLabel" destination="I7H-fS-LQy" id="PE7-Ek-WY8"/>
+                <outlet property="p2WarCardsStack" destination="I95-90-e5f" id="1Cu-r0-yJs"/>
                 <outlet property="play1Button" destination="yhU-sI-Tcz" id="zkR-4f-dml"/>
                 <outlet property="play2Button" destination="8Y7-YS-NGh" id="4GM-cS-0ch"/>
                 <outlet property="playedCard1Label" destination="Vwo-qN-QQ1" id="wbK-id-KiV"/>
@@ -164,6 +166,20 @@
                         </imageView>
                     </subviews>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="I95-90-e5f">
+                    <rect key="frame" x="106" y="235" width="202" height="34"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-84-mzl">
+                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-2x-Qzd">
+                            <rect key="frame" x="67.5" y="0.0" width="67" height="34"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Wn-fLp">
+                            <rect key="frame" x="134.5" y="0.0" width="67.5" height="34"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -174,10 +190,13 @@
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Av-mx-IZh"/>
                 <constraint firstItem="SmM-dD-TNm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3a4-iI-2QJ"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5GQ-UY-QTh"/>
+                <constraint firstItem="I95-90-e5f" firstAttribute="width" secondItem="d5G-d7-iDm" secondAttribute="width" multiplier="0.841667" id="65y-fC-LA2"/>
                 <constraint firstItem="Gl5-VP-fCp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6It-y3-g59"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6JX-E8-u8D"/>
+                <constraint firstItem="I95-90-e5f" firstAttribute="centerX" secondItem="d5G-d7-iDm" secondAttribute="centerX" id="746-Mt-L8v"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Gl5-VP-fCp" secondAttribute="bottom" constant="50" id="8Lo-YH-mzc"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
+                <constraint firstItem="d5G-d7-iDm" firstAttribute="firstBaseline" secondItem="I95-90-e5f" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="9VP-64-Wgz"/>
                 <constraint firstItem="2Lg-BT-zCv" firstAttribute="width" secondItem="wdL-HN-y2b" secondAttribute="width" multiplier="0.841667" id="9vG-Bf-Dms"/>
                 <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
@@ -206,6 +225,7 @@
     <resources>
         <image name="ace-clubs" width="67.333335876464844" height="34"/>
         <image name="ace-diamonds" width="67.333335876464844" height="34"/>
+        <image name="ace-hearts" width="67.333335876464844" height="34"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
