@@ -97,7 +97,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
     @IBAction func p1Play(_ sender: UIButton) {
         if turnIsOver { resetForNextTurn() }
         else {
-            play1Button.isEnabled = false
+            //play1Button.isEnabled = false
+            player1Area.playButton.isEnabled = false
             if let nextCard = player1.popLast() {
                 card1 = nextCard
                 //playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
@@ -113,7 +114,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
     @IBAction func p2Play(_ sender: UIButton) {
         if turnIsOver { resetForNextTurn() }
         else {
-            play2Button.isEnabled = false
+            //play2Button.isEnabled = false
+            player2Area.playButton.isEnabled = false
             if let nextCard = player2.popLast() {
                 card2 = nextCard
                 //playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
@@ -338,8 +340,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         winLabel.text = "Win!"
         turnIsOver = false
         
-        play1Button.isEnabled = true
-        play2Button.isEnabled = true
+        //play1Button.isEnabled = true
+        //play2Button.isEnabled = true
+        player1Area.playButton.isEnabled = true
+        player2Area.playButton.isEnabled = true
     }
     
     func gameOver(for player: String) {
