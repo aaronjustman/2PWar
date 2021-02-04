@@ -29,7 +29,7 @@ protocol PlayButtonDelegate {
     }
     
     var playerNumber = 0
-    var delegate: PlayButtonDelegate!
+    var playDelegate: PlayButtonDelegate!
         
     /*
     // Only override draw() if you perform custom drawing.
@@ -40,7 +40,20 @@ protocol PlayButtonDelegate {
     */
     
     @IBAction func play() {
-        (playerNumber == 1) ? delegate.play(for: "Player 1") : delegate.play(for: "Player 2")
+        guard playerNumber != 0 else {
+            print("This button is player number 0!")
+            return
+        }
+        
+        (playerNumber == 1) ? playDelegate.play(for: "Player 1") : playDelegate.play(for: "Player 2")
+    }
+    
+    func setForWar() {
+        playButton.setTitle("WAR!", for: .normal)
+        playButton.setTitleColor(.red, for: .normal)
+        playButton.setTitleColor(.lightGray, for: .disabled)
+        //playButton.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+        //playButton.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
     }
     
     override class func awakeFromNib() {

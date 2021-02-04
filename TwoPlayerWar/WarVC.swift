@@ -59,10 +59,14 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         player1Area.cardsLeftLabel.text = String(player1.count)
         player1Area.playButton.setTitle("", for: .normal)
+        player1Area.playerNumber = 1
+        player1Area.playDelegate = self
         
         player2Area.playerNameLabel.text = "Player 2"
         player2Area.cardsLeftLabel.text = String(player2.count)
         player2Area.playButton.setTitle("", for: .normal)
+        player2Area.playerNumber = 2
+        player2Area.playDelegate = self
         player2Area.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         playedCard2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         play2Button.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
@@ -74,9 +78,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func play(for player: String) {
         switch player {
         case "Player 1":
-            <#code#>
+            if !warIsOver { p1PlayWar() }  else { p1Play(player1Area.playButton) }
         case "Player 2":
-            return
+            if !warIsOver { p2PlayWar() }  else { p2Play(player2Area.playButton) }
         default:
             return
         }
@@ -249,17 +253,20 @@ class WarVC: UIViewController, PlayButtonDelegate {
             warCards.append(card1)
             warCards.append(card2)
             
-            play1Button.setTitle("WAR!", for: .normal)
-            play1Button.setTitleColor(.red, for: .normal)
-            play1Button.setTitleColor(.lightGray, for: .disabled)
-            play1Button.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-            play1Button.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+//            play1Button.setTitle("WAR!", for: .normal)
+//            play1Button.setTitleColor(.red, for: .normal)
+//            play1Button.setTitleColor(.lightGray, for: .disabled)
+//            play1Button.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
+//            play1Button.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
+//
+//            play2Button.setTitle("WAR!", for: .normal)
+//            play2Button.setTitleColor(.red, for: .normal)
+//            play2Button.setTitleColor(.lightGray, for: .disabled)
+//            play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
+//            play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
             
-            play2Button.setTitle("WAR!", for: .normal)
-            play2Button.setTitleColor(.red, for: .normal)
-            play2Button.setTitleColor(.lightGray, for: .disabled)
-            play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
-            play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
+            //player1Area.setForWar()
+            //player2Area.setForWar()
         }
         
         play1Button.isEnabled = true
