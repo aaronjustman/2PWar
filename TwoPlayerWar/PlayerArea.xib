@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
                 <outlet property="cardsLeftLabel" destination="Mz6-SS-20U" id="DLE-3i-qpM"/>
+                <outlet property="deckImage" destination="j7y-xc-aDu" id="881-cA-7TU"/>
                 <outlet property="playButton" destination="sQq-KB-ARx" id="5jU-ov-U6p"/>
                 <outlet property="playerNameLabel" destination="6Th-8I-rO2" id="Mgq-Md-hmg"/>
             </connections>

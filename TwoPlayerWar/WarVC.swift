@@ -100,8 +100,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         else {
             //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
-            let im = UIImage(imageLiteralResourceName: "deck-gray")
-            player1Area.playButton.setImage(im, for: .disabled)
+            let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
+            //player1Area.playButton.setImage(im, for: .disabled)
+            player1Area.deckImage.image = grayDeck
             if let nextCard = player1.popLast() {
                 card1 = nextCard
                 //playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
@@ -120,8 +121,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         else {
             //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
-            let im = UIImage(imageLiteralResourceName: "deck-gray")
-            player2Area.playButton.setImage(im, for: .disabled)
+            let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
+            //player2Area.playButton.setImage(im, for: .disabled)
+            player2Area.deckImage.image = grayDeck
             if let nextCard = player2.popLast() {
                 card2 = nextCard
                 //playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
@@ -182,9 +184,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         else {
             //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
-            let im = UIImage(imageLiteralResourceName: "deck-gray")
-            player1Area.playButton.setImage(im, for: .disabled)
-            
+            let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
+            //player1Area.playButton.setImage(im, for: .disabled)
+            player1Area.deckImage.image = grayDeck
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
@@ -211,9 +213,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         else {
             //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
-            let im = UIImage(imageLiteralResourceName: "deck-gray")
-            player2Area.playButton.setImage(im, for: .disabled)
-            
+            let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
+            //player2Area.playButton.setImage(im, for: .disabled)
+            player2Area.deckImage.image = grayDeck
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
@@ -295,8 +297,14 @@ class WarVC: UIViewController, PlayButtonDelegate {
             //player2Area.setForWar()
         }
         
-        play1Button.isEnabled = true
-        play2Button.isEnabled = true
+        //play1Button.isEnabled = true
+        //play2Button.isEnabled = true
+        
+        let blueDeck = UIImage(imageLiteralResourceName: "deck-blue")
+        player1Area.playButton.isEnabled = true
+        player1Area.deckImage.image = blueDeck
+        player2Area.playButton.isEnabled = true
+        player2Area.deckImage.image = blueDeck
     }
     
     func resetForNextTurn() {
@@ -356,11 +364,14 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         //play1Button.isEnabled = true
         //play2Button.isEnabled = true
+        
+        let blueDeck = UIImage(imageLiteralResourceName: "deck-blue")
         player1Area.playButton.isEnabled = true
-        let im = UIImage(imageLiteralResourceName: "deck-blue")
-        player1Area.playButton.setImage(im, for: .normal)
+        player1Area.deckImage.image = blueDeck
+        //player1Area.playButton.setImage(im, for: .normal)
         player2Area.playButton.isEnabled = true
-        player2Area.playButton.setImage(im, for: .normal)
+        player2Area.deckImage.image = blueDeck
+        //player2Area.playButton.setImage(im, for: .normal)
     }
     
     func gameOver(for player: String) {
