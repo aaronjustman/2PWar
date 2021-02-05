@@ -36,7 +36,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false
     var p2DidPlayWar = false
-    var warIsOver = true
+    var warIsOver = false
+    var isWar = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -86,18 +87,19 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func play(for player: String) {
         switch player {
         case "Player 1":
-            if !warIsOver { p1PlayWar() }  else { p1Play(player1Area.playButton) }
+            if isWar { p1PlayWar() }  else { p1Play(player1Area.playButton) }
         case "Player 2":
-            if !warIsOver { p2PlayWar() }  else { p2Play(player2Area.playButton) }
+            if isWar { p2PlayWar() }  else { p2Play(player2Area.playButton) }
         default:
             return
         }
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
-        print("P1 playing...")
-        if turnIsOver { resetForNextTurn() }
+        
+        if turnIsOver { print("resetting..."); resetForNextTurn() }
         else {
+            print("P1 playing...")
             //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
@@ -116,9 +118,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @IBAction func p2Play(_ sender: UIButton) {
-        print("P2 playing...")
-        if turnIsOver { resetForNextTurn() }
+        
+        if turnIsOver { print("resetting..."); resetForNextTurn() }
         else {
+            print("P2 playing...")
             //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
@@ -179,9 +182,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p1PlayWar() {
-        print("P1 playing war...")
-        if warIsOver { resetForNextTurn() }
+        
+        if warIsOver { print("resetting..."); resetForNextTurn() }
         else {
+            print("P1 playing war...")
             //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
@@ -208,9 +212,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p2PlayWar() {
-        print("P2 playing war...")
-        if warIsOver { resetForNextTurn() }
+        
+        if warIsOver { print("resetting..."); resetForNextTurn() }
         else {
+            print("P2 playing war...")
             //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
@@ -269,6 +274,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 warCards.removeAll()
             }
         } else if card1.rank.cardValue == card2.rank.cardValue {
+            isWar = true
             warIsOver = false
             p1DidPlayWar = false
             p2DidPlayWar = false
@@ -315,6 +321,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
             p1DidPlayWar = false
             p2DidPlayWar = false
             warIsOver = false
+            isWar = false
             
 //            p1WarCardsStack.isHidden = true
 //            for view in p1WarCardsStack.arrangedSubviews {
