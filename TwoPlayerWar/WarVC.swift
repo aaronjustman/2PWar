@@ -82,6 +82,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         }
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
+        gameOver(for: "Player 2")
     }
     
     func play(for player: String) {
@@ -198,7 +200,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)") //warCardLabel.text = nextCard.description
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                } else { gameOver(for: "Player 1") }
+                } else { gameOver(for: "Player 1"); break; }
             }
             if let nextCard = player1.popLast() {
                 card1 = nextCard
@@ -228,7 +230,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                } else { gameOver(for: "Player 2") }
+                } else { gameOver(for: "Player 2"); break; }
             }
             if let nextCard = player2.popLast() {
                 card2 = nextCard

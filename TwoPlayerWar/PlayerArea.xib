@@ -50,8 +50,12 @@
                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <size key="shadowOffset" width="1" height="2"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-KB-ARx" userLabel="Play button">
-                    <rect key="frame" x="295" y="17.5" width="97" height="46"/>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-KB-ARx" userLabel="Play button">
+                    <rect key="frame" x="269" y="0.0" width="145" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="4kQ-yr-yQV"/>
+                        <constraint firstAttribute="width" constant="145" id="Wym-Co-2uv"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
                     <state key="normal" title="Button">
                         <color key="titleColor" systemColor="systemRedColor"/>
@@ -65,10 +69,11 @@
             <color key="backgroundColor" red="0.63529411764705879" green="0.84313725490196079" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="6Th-8I-rO2" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-5" id="1Hu-vL-LKb"/>
-                <constraint firstItem="sQq-KB-ARx" firstAttribute="centerX" secondItem="j7y-xc-aDu" secondAttribute="centerX" id="3Ye-Ds-Kxj"/>
-                <constraint firstItem="sQq-KB-ARx" firstAttribute="centerY" secondItem="j7y-xc-aDu" secondAttribute="centerY" id="6cR-4Z-qy8"/>
+                <constraint firstItem="sQq-KB-ARx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cfs-KR-Szp"/>
+                <constraint firstItem="sQq-KB-ARx" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Gn3-Wj-q1a"/>
                 <constraint firstItem="Mz6-SS-20U" firstAttribute="bottom" secondItem="j7y-xc-aDu" secondAttribute="bottom" id="HZA-nw-LuI"/>
                 <constraint firstItem="6Th-8I-rO2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="83" id="Huk-qw-DD7"/>
+                <constraint firstItem="sQq-KB-ARx" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IJV-GY-9eT"/>
                 <constraint firstItem="j7y-xc-aDu" firstAttribute="bottom" secondItem="6Th-8I-rO2" secondAttribute="bottom" id="Sde-ex-rmq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="j7y-xc-aDu" secondAttribute="trailing" constant="20" id="mAV-D9-JZr"/>
                 <constraint firstItem="Mz6-SS-20U" firstAttribute="trailing" secondItem="j7y-xc-aDu" secondAttribute="trailing" id="ofj-7L-0P1"/>
@@ -76,7 +81,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.34375"/>
         </view>
     </objects>
     <resources>
