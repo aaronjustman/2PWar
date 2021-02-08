@@ -97,12 +97,12 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-mI-U3x">
-                    <rect key="frame" x="155.5" y="419" width="103" height="58"/>
+                    <rect key="frame" x="149" y="419" width="116" height="58"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="8r8-cX-7yY"/>
                         <constraint firstAttribute="height" constant="58" id="qsR-X4-pdv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="48"/>
                     <color key="textColor" systemColor="systemPinkColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -112,7 +112,7 @@
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="472" id="Nb4-SA-UEt"/>
                         <constraint firstAttribute="height" constant="115" id="Rqz-bB-uMz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="96"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -122,18 +122,18 @@
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="472" id="CpZ-MU-OKf"/>
                         <constraint firstAttribute="height" constant="115" id="sCG-T8-Aeb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="96"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmM-dD-TNm">
-                    <rect key="frame" x="141.5" y="413" width="131" height="70"/>
+                    <rect key="frame" x="74.5" y="413" width="265" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="131" id="ZKl-PE-HPu"/>
                         <constraint firstAttribute="height" constant="70" id="kQS-13-Wz6"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                    <state key="normal" title="Again!"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="40"/>
+                    <state key="normal" title="Play again?"/>
                     <connections>
                         <action selector="playAgain" destination="-1" eventType="touchUpInside" id="hMd-3S-9T2"/>
                     </connections>

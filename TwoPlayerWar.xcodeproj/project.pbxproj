@@ -18,7 +18,6 @@
 		0028D4BE25A91414008BEADF /* PlayerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4BD25A91414008BEADF /* PlayerArea.swift */; };
 		0028D4C125A9145F008BEADF /* PlayerArea.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028D4C025A9145F008BEADF /* PlayerArea.xib */; };
 		00B00F5A25B7897100A95433 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B00F5925B7897100A95433 /* Cards.swift */; };
-		00EE74C125D1A97900DC0A6F /* casio-fx-9860gii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00EE74C025D1A97900DC0A6F /* casio-fx-9860gii.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		0028D4BD25A91414008BEADF /* PlayerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerArea.swift; sourceTree = "<group>"; };
 		0028D4C025A9145F008BEADF /* PlayerArea.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerArea.xib; sourceTree = "<group>"; };
 		00B00F5925B7897100A95433 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
-		00EE74C025D1A97900DC0A6F /* casio-fx-9860gii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "casio-fx-9860gii.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				0028D4AB25A8EDFA008BEADF /* Assets.xcassets */,
 				0028D4AD25A8EDFA008BEADF /* LaunchScreen.storyboard */,
 				0028D4B025A8EDFA008BEADF /* Info.plist */,
-				00EE74C025D1A97900DC0A6F /* casio-fx-9860gii.ttf */,
 			);
 			path = TwoPlayerWar;
 			sourceTree = "<group>";
@@ -147,7 +144,6 @@
 				0028D4BA25A8EF75008BEADF /* WarVC.xib in Resources */,
 				0028D4AC25A8EDFA008BEADF /* Assets.xcassets in Resources */,
 				0028D4AA25A8EDF9008BEADF /* Main.storyboard in Resources */,
-				00EE74C125D1A97900DC0A6F /* casio-fx-9860gii.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
