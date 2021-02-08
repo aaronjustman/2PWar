@@ -155,13 +155,13 @@
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-BT-zCv">
                     <rect key="frame" x="106" y="633" width="202" height="34"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-bL-a11">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-bL-a11">
                             <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="jPy-bo-Mu8">
                             <rect key="frame" x="67.5" y="0.0" width="67" height="34"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-yL-xLV">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ace-diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-yL-xLV">
                             <rect key="frame" x="134.5" y="0.0" width="67.5" height="34"/>
                         </imageView>
                     </subviews>
@@ -169,10 +169,10 @@
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="I95-90-e5f">
                     <rect key="frame" x="106" y="235" width="202" height="34"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-84-mzl">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-84-mzl">
                             <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-2x-Qzd">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-2x-Qzd">
                             <rect key="frame" x="67.5" y="0.0" width="67" height="34"/>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ace-hearts" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Wn-fLp">
