@@ -66,6 +66,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
             let imageView = view as! UIImageView
             imageView.image = .none
         }
+        p1CardIV.image = .none
         
         player2Area.playerNameLabel.text = "Player 2"
         player2Area.cardsLeftLabel.text = String(player2.count)
@@ -82,8 +83,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         }
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        p2CardIV.image = .none
         
-        gameOver(for: "Player 2")
+        //gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
