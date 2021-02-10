@@ -59,7 +59,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         deal()
         
-        //player1Area.cardsLeftLabel.text = String(player1.count)
         player1Area.playButton.setTitle("", for: .normal)
         player1Area.totalCardsWonLabel.text = "0"
         player1Area.playerNumber = 1
@@ -70,8 +69,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         }
         p1CardIV.image = .none
         
-        //player2Area.playerNameLabel.text = "Player 2"
-        //player2Area.cardsLeftLabel.text = String(player2.count)
         player2Area.playButton.setTitle("", for: .normal)
         player2Area.totalCardsWonLabel.text = "0"
         player2Area.playerNumber = 2
@@ -87,8 +84,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
-        
-        gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
@@ -144,6 +139,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         player1Area.totalCardsWonLabel.text = "0"
         p2TotalCardsWon = 0
         player2Area.totalCardsWonLabel.text = "0"
+        matchTimeLabel.text = ""
+        matchTimeLabel.isHidden = true
+        startTime = Date()
+        endTime = Date()
         cardForP1 = true
         p1DidPlay = false
         p2DidPlay = false
@@ -316,25 +315,21 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
         
-        endTime = startTime.advanced(by: 1130) //Date()
+        endTime = Date()
         matchTime = endTime.timeIntervalSince(startTime)
         
-        let dateInterval = DateInterval(start: startTime, end: endTime)
-        print("match time:", matchTime, "date interval:", dateInterval)
-        var totalSeconds = Int(matchTime) //Int(matchTime * 1000)
+        let totalSeconds = Int(matchTime)
         let totalMinutes = totalSeconds / 60
         let totalHours = totalMinutes / 60
-        print("total hours:", totalHours, "total minutes:", totalMinutes)
         let minutesLeft = totalMinutes - (totalHours * 60)
-        //let minutes = minutesLeft / 60
-        let secondsLeft = totalSeconds - (totalMinutes * 60)// - (totalHours * 60 * 60)
-        print("seconds left:", secondsLeft)
-        //let seconds = secondsLeft / 60
-        //matchTimeLabel.text = "Match time: \((totalHours != 0) ? totalHours : totalMinutes)\((totalHours != 0) ? ):\(minutes)m"
+        let secondsLeft = totalSeconds - (totalMinutes * 60)
+        
         var fixedMatchTime = ""
         if totalHours != 0 { fixedMatchTime += "\(totalHours)h:"}
         fixedMatchTime += "\(minutesLeft)m:\(secondsLeft)s"
+        
         matchTimeLabel.text = fixedMatchTime
+        matchTimeLabel.isHidden = false
         
         if player == "Player 1" {
             p1ResultLabel.text = "LOSE"
