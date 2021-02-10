@@ -23,6 +23,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     @IBOutlet weak var p2WarCardsStack: UIStackView!
     @IBOutlet weak var p1CardIV: UIImageView!
     @IBOutlet weak var p2CardIV: UIImageView!
+    @IBOutlet weak var matchTimeLabel: UILabel!
     
     var deck = [Card]()
     
@@ -39,6 +40,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
     var warCards = [Card]()
+    
+    var startTime = Date(), endTime = Date()
+    var matchTime: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +87,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
+        
+        gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
@@ -309,6 +315,16 @@ class WarVC: UIViewController, PlayButtonDelegate {
     
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
+        
+        endTime = startTime.advanced(by: 1111) //Date()
+        matchTime = endTime.timeIntervalSince(startTime)
+        print("match time:", matchTime)
+        var totalSeconds = Int(matchTime) //Int(matchTime * 1000)
+        let totalMinutes = totalSeconds / 60
+        let totalHours = totalMinutes / 60
+        totalSeconds -= (totalHours * 60)
+        let minutes = totalSeconds / 60
+        matchTimeLabel.text = "Match time: \(totalHours)h:\(minutes)m"
         
         if player == "Player 1" {
             p1ResultLabel.text = "LOSE"

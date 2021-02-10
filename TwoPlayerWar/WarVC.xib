@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
                 <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
+                <outlet property="matchTimeLabel" destination="dWQ-lo-vap" id="RAB-jp-Pzl"/>
                 <outlet property="p1CardIV" destination="wdL-HN-y2b" id="t4H-lV-Tb9"/>
                 <outlet property="p1ResultLabel" destination="Gl5-VP-fCp" id="gW4-pZ-jjC"/>
                 <outlet property="p1WarCardsStack" destination="2Lg-BT-zCv" id="AmU-Hg-kOu"/>
@@ -180,6 +181,13 @@
                         </imageView>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match time: 99:99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-lo-vap">
+                    <rect key="frame" x="104" y="387" width="205" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
