@@ -134,6 +134,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         player1.removeAll()
         player2.removeAll()
         warCards.removeAll()
+        p1TotalCardsWon = 0
+        player1Area.totalCardsWonLabel.text = "0"
+        p2TotalCardsWon = 0
+        player2Area.totalCardsWonLabel.text = "0"
         cardForP1 = true
         p1DidPlay = false
         p2DidPlay = false
