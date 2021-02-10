@@ -40,7 +40,7 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="playerName" value="Player 1"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="26"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w88-7J-Eyt" userLabel="Player Area 2" customClass="PlayerArea" customModule="TwoPlayerWar" customModuleProvider="target">
@@ -50,8 +50,8 @@
                         <constraint firstAttribute="width" constant="414" id="fq8-Qz-Qu9"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="playerName" value="Player 1"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="43"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="playerName" value="Player 2"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cardsLeft" value="26"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played card 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-qN-QQ1">

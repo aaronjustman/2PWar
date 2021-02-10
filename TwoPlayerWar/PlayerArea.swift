@@ -17,6 +17,7 @@ protocol PlayButtonDelegate {
     @IBOutlet weak var cardsLeftLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var deckImage: UIImageView!
+    @IBOutlet weak var totalCardsWonLabel: UILabel!
     
     @IBInspectable var playerName: String = "New Player" {
         willSet {

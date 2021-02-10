@@ -58,8 +58,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         deal()
         
-        player1Area.cardsLeftLabel.text = String(player1.count)
+        //player1Area.cardsLeftLabel.text = String(player1.count)
         player1Area.playButton.setTitle("", for: .normal)
+        player1Area.totalCardsWonLabel.text = "0"
         player1Area.playerNumber = 1
         player1Area.playDelegate = self
         for view in p1WarCardsStack.arrangedSubviews {
@@ -68,9 +69,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         }
         p1CardIV.image = .none
         
-        player2Area.playerNameLabel.text = "Player 2"
-        player2Area.cardsLeftLabel.text = String(player2.count)
+        //player2Area.playerNameLabel.text = "Player 2"
+        //player2Area.cardsLeftLabel.text = String(player2.count)
         player2Area.playButton.setTitle("", for: .normal)
+        player2Area.totalCardsWonLabel.text = "0"
         player2Area.playerNumber = 2
         player2Area.playDelegate = self
         player2Area.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
