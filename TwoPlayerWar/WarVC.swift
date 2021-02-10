@@ -26,18 +26,15 @@ class WarVC: UIViewController, PlayButtonDelegate {
     
     var deck = [Card]()
     
-    var player1 = [Card]()
-    var player2 = [Card]()
+    var player1 = [Card](), player2 = [Card]()
+    var p1TotalCardsWon = 0, p2TotalCardsWon = 0
     
     var cardForP1 = true
-    var p1DidPlay = false
-    var p2DidPlay = false
+    var p1DidPlay = false, p2DidPlay = false
     var turnIsOver = false
     var isFacingP1 = true
-    var p1DidPlayWar = false
-    var p2DidPlayWar = false
-    var warIsOver = false
-    var isWar = false
+    var p1DidPlayWar = false,  p2DidPlayWar = false
+    var isWar = false, warIsOver = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -229,8 +226,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
+            p1TotalCardsWon += 2
             if !warCards.isEmpty {
                 player1.insert(contentsOf: warCards, at: 0)
+                p1TotalCardsWon += warCards.count
                 warCards.removeAll()
             }
         } else if card2.rank.cardValue > card1.rank.cardValue {
@@ -239,8 +238,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
+            p2TotalCardsWon += 2
             if !warCards.isEmpty {
                 player2.insert(contentsOf: warCards, at: 0)
+                p2TotalCardsWon += warCards.count
                 warCards.removeAll()
             }
         } else if card1.rank.cardValue == card2.rank.cardValue {
@@ -267,7 +268,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
     
     func resetForNextTurn() {
         player1Area.cardsLeft = String(player1.count)
+        player1Area.totalCardsWonLabel.text = String(p1TotalCardsWon)
         player2Area.cardsLeft = String(player2.count)
+        player2Area.totalCardsWonLabel.text = String(p2TotalCardsWon)
         
         if warIsOver {
             p1DidPlayWar = false
