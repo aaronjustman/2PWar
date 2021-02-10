@@ -181,9 +181,12 @@
                         </imageView>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match time: 99:99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-lo-vap">
-                    <rect key="frame" x="104" y="387" width="205" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match time: 99:99:99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-lo-vap">
+                    <rect key="frame" x="87" y="387" width="241" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="241" id="gqd-G8-IW1"/>
+                        <constraint firstAttribute="height" constant="24" id="qjQ-PF-lNW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -202,6 +205,7 @@
                 <constraint firstItem="Gl5-VP-fCp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6It-y3-g59"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6JX-E8-u8D"/>
                 <constraint firstItem="I95-90-e5f" firstAttribute="centerX" secondItem="d5G-d7-iDm" secondAttribute="centerX" id="746-Mt-L8v"/>
+                <constraint firstItem="dWQ-lo-vap" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7df-Qp-yRW"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="top" secondItem="Gl5-VP-fCp" secondAttribute="bottom" constant="50" id="8Lo-YH-mzc"/>
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
                 <constraint firstItem="d5G-d7-iDm" firstAttribute="firstBaseline" secondItem="I95-90-e5f" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="9VP-64-Wgz"/>
@@ -224,6 +228,7 @@
                 <constraint firstItem="2Lg-BT-zCv" firstAttribute="centerX" secondItem="wdL-HN-y2b" secondAttribute="centerX" id="koe-hd-rsF"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
                 <constraint firstItem="2Lg-BT-zCv" firstAttribute="top" secondItem="wdL-HN-y2b" secondAttribute="bottom" constant="8" symbolic="YES" id="pcP-aM-e3X"/>
+                <constraint firstItem="SmM-dD-TNm" firstAttribute="top" secondItem="dWQ-lo-vap" secondAttribute="bottom" constant="2" id="rJx-mj-sTL"/>
                 <constraint firstItem="wdL-HN-y2b" firstAttribute="top" secondItem="xoV-mI-U3x" secondAttribute="bottom" constant="20" id="xnP-Ij-RBA"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="8Y7-YS-NGh" secondAttribute="bottom" constant="50" id="zAC-fu-I5Q"/>
             </constraints>
