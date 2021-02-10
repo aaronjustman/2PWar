@@ -316,15 +316,25 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
         
-        endTime = startTime.advanced(by: 1111) //Date()
+        endTime = startTime.advanced(by: 1130) //Date()
         matchTime = endTime.timeIntervalSince(startTime)
-        print("match time:", matchTime)
+        
+        let dateInterval = DateInterval(start: startTime, end: endTime)
+        print("match time:", matchTime, "date interval:", dateInterval)
         var totalSeconds = Int(matchTime) //Int(matchTime * 1000)
         let totalMinutes = totalSeconds / 60
         let totalHours = totalMinutes / 60
-        totalSeconds -= (totalHours * 60)
-        let minutes = totalSeconds / 60
-        matchTimeLabel.text = "Match time: \(totalHours)h:\(minutes)m"
+        print("total hours:", totalHours, "total minutes:", totalMinutes)
+        let minutesLeft = totalMinutes - (totalHours * 60)
+        //let minutes = minutesLeft / 60
+        let secondsLeft = totalSeconds - (totalMinutes * 60)// - (totalHours * 60 * 60)
+        print("seconds left:", secondsLeft)
+        //let seconds = secondsLeft / 60
+        //matchTimeLabel.text = "Match time: \((totalHours != 0) ? totalHours : totalMinutes)\((totalHours != 0) ? ):\(minutes)m"
+        var fixedMatchTime = ""
+        if totalHours != 0 { fixedMatchTime += "\(totalHours)h:"}
+        fixedMatchTime += "\(minutesLeft)m:\(secondsLeft)s"
+        matchTimeLabel.text = fixedMatchTime
         
         if player == "Player 1" {
             p1ResultLabel.text = "LOSE"
