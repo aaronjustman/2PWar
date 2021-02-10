@@ -84,8 +84,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
-        
-        //gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
@@ -100,18 +98,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
 
     @IBAction func p1Play(_ sender: UIButton) {
-        
-        if turnIsOver { print("resetting..."); resetForNextTurn() }
+        if turnIsOver { resetForNextTurn() }
         else {
-            print("P1 playing...")
-            //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
-            //player1Area.playButton.setImage(im, for: .disabled)
             player1Area.deckImage.image = grayDeck
             if let nextCard = player1.popLast() {
                 card1 = nextCard
-                //playedCard1Label.text = "\(card1.rank.cardNumber)\(card1.suit.emoji)"
                 p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlay = true
@@ -122,18 +115,13 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @IBAction func p2Play(_ sender: UIButton) {
-        
-        if turnIsOver { print("resetting..."); resetForNextTurn() }
+        if turnIsOver { resetForNextTurn() }
         else {
-            print("P2 playing...")
-            //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
-            //player2Area.playButton.setImage(im, for: .disabled)
             player2Area.deckImage.image = grayDeck
             if let nextCard = player2.popLast() {
                 card2 = nextCard
-                //playedCard2Label.text = "\(card2.rank.cardNumber)\(card2.suit.emoji)"
                 p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)")
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlay = true
@@ -157,27 +145,11 @@ class WarVC: UIViewController, PlayButtonDelegate {
         warIsOver = false
         winLabel.text = "Win!"
         winLabel.isHidden = true
-        //playedCard1Label.text = ""
-        //playedCard2Label.text = ""
         p1CardIV.image = .none
         p2CardIV.image = .none
         p1ResultLabel.isHidden = true
         p2ResultLabel.isHidden = true
         againButton.isHidden = true
-        
-//        play1Button.setTitle("Play!", for: .normal)
-//        play1Button.setTitleColor(.blue, for: .normal)
-//        play1Button.setTitleColor(.lightGray, for: .disabled)
-//        play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-//        play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-//        play1Button.isEnabled = true
-//
-//        play2Button.setTitle("Play!", for: .normal)
-//        play2Button.setTitleColor(.blue, for: .normal)
-//        play2Button.setTitleColor(.lightGray, for: .disabled)
-//        play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-//        play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
-//        play2Button.isEnabled = true
         
         deck.shuffle()
         deal()
@@ -186,27 +158,23 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p1PlayWar() {
-        
-        if warIsOver { print("resetting..."); resetForNextTurn() }
+        if warIsOver { resetForNextTurn() }
         else {
-            print("P1 playing war...")
-            //play1Button.isEnabled = false
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
-            //player1Area.playButton.setImage(im, for: .disabled)
             player1Area.deckImage.image = grayDeck
             var cardsToAdd = 3
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
                     let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
-                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)") //warCardLabel.text = nextCard.description
+                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1"); break; }
             }
             if let nextCard = player1.popLast() {
                 card1 = nextCard
-                p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")//playedCard1Label.text = card1.description
+                p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
@@ -216,14 +184,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     @objc func p2PlayWar() {
-        
-        if warIsOver { print("resetting..."); resetForNextTurn() }
+        if warIsOver { resetForNextTurn() }
         else {
-            print("P2 playing war...")
-            //play2Button.isEnabled = false
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
-            //player2Area.playButton.setImage(im, for: .disabled)
             player2Area.deckImage.image = grayDeck
             var cardsToAdd = 3
             while cardsToAdd > 0 {
@@ -236,7 +200,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
             }
             if let nextCard = player2.popLast() {
                 card2 = nextCard
-                p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)") //playedCard2Label.text = card2.description
+                p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)")
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
@@ -290,25 +254,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
             
             warCards.append(card1)
             warCards.append(card2)
-            
-//            play1Button.setTitle("WAR!", for: .normal)
-//            play1Button.setTitleColor(.red, for: .normal)
-//            play1Button.setTitleColor(.lightGray, for: .disabled)
-//            play1Button.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-//            play1Button.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-//
-//            play2Button.setTitle("WAR!", for: .normal)
-//            play2Button.setTitleColor(.red, for: .normal)
-//            play2Button.setTitleColor(.lightGray, for: .disabled)
-//            play2Button.removeTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
-//            play2Button.addTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-            
-            //player1Area.setForWar()
-            //player2Area.setForWar()
         }
-        
-        //play1Button.isEnabled = true
-        //play2Button.isEnabled = true
         
         let blueDeck = UIImage(imageLiteralResourceName: "deck-blue")
         player1Area.playButton.isEnabled = true
@@ -327,32 +273,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
             warIsOver = false
             isWar = false
             
-//            p1WarCardsStack.isHidden = true
-//            for view in p1WarCardsStack.arrangedSubviews {
-//                if let label = view as? UILabel {
-//                    label.text = ""
-//                }
-//            }
-//
-//            p2WarCardsStack.isHidden = true
-//            for view in p2WarCardsStack.arrangedSubviews {
-//                if let label = view as? UILabel {
-//                    label.text = ""
-//                }
-//            }
-//
-//            play1Button.setTitle("Play!", for: .normal)
-//            play1Button.setTitleColor(.blue, for: .normal)
-//            play1Button.setTitleColor(.lightGray, for: .disabled)
-//            play1Button.removeTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-//            play1Button.addTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-//
-//            play2Button.setTitle("Play!", for: .normal)
-//            play2Button.setTitleColor(.blue, for: .normal)
-//            play2Button.setTitleColor(.lightGray, for: .disabled)
-//            play2Button.removeTarget(self, action: #selector(p2PlayWar), for: .touchUpInside)
-//            play2Button.addTarget(self, action: #selector(p2Play(_:)), for: .touchUpInside)
-            
             for view in p1WarCardsStack.arrangedSubviews {
                 let imageView = view as! UIImageView
                 imageView.image = .none
@@ -363,8 +283,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
             }
         }
         
-        //playedCard1Label.text = ""
-        //playedCard2Label.text = ""
         p1CardIV.image = .none
         p2CardIV.image = .none
         p1DidPlay = false
@@ -373,16 +291,11 @@ class WarVC: UIViewController, PlayButtonDelegate {
         winLabel.text = "Win!"
         turnIsOver = false
         
-        //play1Button.isEnabled = true
-        //play2Button.isEnabled = true
-        
         let blueDeck = UIImage(imageLiteralResourceName: "deck-blue")
         player1Area.playButton.isEnabled = true
         player1Area.deckImage.image = blueDeck
-        //player1Area.playButton.setImage(im, for: .normal)
         player2Area.playButton.isEnabled = true
         player2Area.deckImage.image = blueDeck
-        //player2Area.playButton.setImage(im, for: .normal)
     }
     
     func gameOver(for player: String) {

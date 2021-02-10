@@ -49,14 +49,6 @@ protocol PlayButtonDelegate {
         (playerNumber == 1) ? playDelegate.play(for: "Player 1") : playDelegate.play(for: "Player 2")
     }
     
-//    func setForWar() {
-//        playButton.setTitle("WAR!", for: .normal)
-//        playButton.setTitleColor(.red, for: .normal)
-//        playButton.setTitleColor(.lightGray, for: .disabled)
-//        //playButton.removeTarget(self, action: #selector(p1Play(_:)), for: .touchUpInside)
-//        //playButton.addTarget(self, action: #selector(p1PlayWar), for: .touchUpInside)
-//    }
-    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
