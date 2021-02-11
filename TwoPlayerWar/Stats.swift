@@ -14,7 +14,9 @@ struct Stats {
     var matchTime: Double = 0
     var p1TotalCardsWon = 0, p2TotalCardsWon = 0
     var p1TotalHandsWon = 0, p2TotalHandsWon = 0
+    var p1TotalHandsLost = 0, p2TotalHandsLost = 0
     var p1WarsWon = 0, p2WarsWon = 0
+    var p1WarsLost = 0, p2WarsLost = 0
     
     init(player1: [Card], player2: [Card]) {
         self.player1 = player1

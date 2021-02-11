@@ -41,8 +41,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var card2 = Card(suit: .clubs, rank: .two)
     var warCards = [Card]()
     
-    var startTime = Date(), endTime = Date()
-    var matchTime: Double = 0
+    //var startTime = Date(), endTime = Date()
+    //var matchTime: Double = 0
+    var stats: Stats!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         deck.shuffle()
         
         deal()
+        
+        stats = Stats(player1: player1, player2: player2)
         
         player1Area.playButton.setTitle("", for: .normal)
         player1Area.totalCardsWonLabel.text = "0"
@@ -141,8 +144,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         player2Area.totalCardsWonLabel.text = "0"
         matchTimeLabel.text = ""
         matchTimeLabel.isHidden = true
-        startTime = Date()
-        endTime = Date()
+        //startTime = Date()
+        //endTime = Date()
+        stats = Stats(player1: player1, player2: player2)
         cardForP1 = true
         p1DidPlay = false
         p2DidPlay = false
@@ -235,10 +239,16 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
-            p1TotalCardsWon += 2
+            stats.p1TotalCardsWon += 2
+            stats.p1TotalHandsWon += 1
+            stats.p2TotalHandsLost += 1
             if !warCards.isEmpty {
                 player1.insert(contentsOf: warCards, at: 0)
-                p1TotalCardsWon += warCards.count
+                stats.p1TotalCardsWon += warCards.count
+                stats.p1WarsWon += 1
+                stats.p2WarsLost += 1
+                stats.p1TotalHandsWon += 1
+                stats.p2TotalHandsLost += 1
                 warCards.removeAll()
             }
         } else if card2.rank.cardValue > card1.rank.cardValue {
@@ -247,10 +257,16 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.text = "Win!"
             winLabel.isHidden = false
             player2.insert(contentsOf: [card1, card2], at: 0)
-            p2TotalCardsWon += 2
+            stats.p2TotalCardsWon += 2
+            stats.p2TotalHandsWon += 1
+            stats.p1TotalHandsLost += 1
             if !warCards.isEmpty {
                 player2.insert(contentsOf: warCards, at: 0)
-                p2TotalCardsWon += warCards.count
+                stats.p2TotalCardsWon += warCards.count
+                stats.p2WarsWon += 1
+                stats.p1WarsLost += 1
+                stats.p2TotalHandsWon += 1
+                stats.p1TotalHandsLost += 1
                 warCards.removeAll()
             }
         } else if card1.rank.cardValue == card2.rank.cardValue {
@@ -315,10 +331,12 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
         
-        endTime = Date()
-        matchTime = endTime.timeIntervalSince(startTime)
+        //endTime = Date()
+        //matchTime = endTime.timeIntervalSince(startTime)
+        stats.endTime = Date()
+        stats.matchTime = stats.endTime.timeIntervalSince(stats.startTime)
         
-        let totalSeconds = Int(matchTime)
+        let totalSeconds = Int(stats.matchTime)
         let totalMinutes = totalSeconds / 60
         let totalHours = totalMinutes / 60
         let minutesLeft = totalMinutes - (totalHours * 60)
