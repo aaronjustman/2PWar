@@ -240,17 +240,20 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             stats.p1TotalCardsWon += 2
+            //player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
             stats.p1TotalHandsWon += 1
             stats.p2TotalHandsLost += 1
             if !warCards.isEmpty {
                 player1.insert(contentsOf: warCards, at: 0)
                 stats.p1TotalCardsWon += warCards.count
+                //player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
                 stats.p1WarsWon += 1
                 stats.p2WarsLost += 1
                 stats.p1TotalHandsWon += 1
                 stats.p2TotalHandsLost += 1
                 warCards.removeAll()
             }
+            player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
         } else if card2.rank.cardValue > card1.rank.cardValue {
             if isFacingP1 { winLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }
             isFacingP1 = false
@@ -269,6 +272,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 stats.p1TotalHandsLost += 1
                 warCards.removeAll()
             }
+            player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         } else if card1.rank.cardValue == card2.rank.cardValue {
             isWar = true
             warIsOver = false
@@ -293,9 +297,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
     
     func resetForNextTurn() {
         player1Area.cardsLeft = String(player1.count)
-        player1Area.totalCardsWonLabel.text = String(p1TotalCardsWon)
+        player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
         player2Area.cardsLeft = String(player2.count)
-        player2Area.totalCardsWonLabel.text = String(p2TotalCardsWon)
+        player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         
         if warIsOver {
             p1DidPlayWar = false
