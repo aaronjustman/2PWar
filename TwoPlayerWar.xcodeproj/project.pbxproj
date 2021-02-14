@@ -17,6 +17,8 @@
 		0028D4BB25A8EF75008BEADF /* WarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4B925A8EF75008BEADF /* WarVC.swift */; };
 		0028D4BE25A91414008BEADF /* PlayerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4BD25A91414008BEADF /* PlayerArea.swift */; };
 		0028D4C125A9145F008BEADF /* PlayerArea.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028D4C025A9145F008BEADF /* PlayerArea.xib */; };
+		00698EFE25D9CE1E003FC4E9 /* StatsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00698EFC25D9CE1E003FC4E9 /* StatsVC.xib */; };
+		00698EFF25D9CE1E003FC4E9 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */; };
 		00B00F5A25B7897100A95433 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B00F5925B7897100A95433 /* Cards.swift */; };
 		00C5F27F25D5C5CB00ECE118 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5F27E25D5C5CB00ECE118 /* Stats.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		0028D4B925A8EF75008BEADF /* WarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarVC.swift; sourceTree = "<group>"; };
 		0028D4BD25A91414008BEADF /* PlayerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerArea.swift; sourceTree = "<group>"; };
 		0028D4C025A9145F008BEADF /* PlayerArea.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerArea.xib; sourceTree = "<group>"; };
+		00698EFC25D9CE1E003FC4E9 /* StatsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsVC.xib; sourceTree = "<group>"; };
+		00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
 		00B00F5925B7897100A95433 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		00C5F27E25D5C5CB00ECE118 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +80,8 @@
 				0028D4B925A8EF75008BEADF /* WarVC.swift */,
 				0028D4BD25A91414008BEADF /* PlayerArea.swift */,
 				0028D4C025A9145F008BEADF /* PlayerArea.xib */,
+				00698EFC25D9CE1E003FC4E9 /* StatsVC.xib */,
+				00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */,
 				00B00F5925B7897100A95433 /* Cards.swift */,
 				00C5F27E25D5C5CB00ECE118 /* Stats.swift */,
 				0028D4AB25A8EDFA008BEADF /* Assets.xcassets */,
@@ -146,6 +152,7 @@
 				0028D4AF25A8EDFA008BEADF /* LaunchScreen.storyboard in Resources */,
 				0028D4BA25A8EF75008BEADF /* WarVC.xib in Resources */,
 				0028D4AC25A8EDFA008BEADF /* Assets.xcassets in Resources */,
+				00698EFE25D9CE1E003FC4E9 /* StatsVC.xib in Resources */,
 				0028D4AA25A8EDF9008BEADF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00698EFF25D9CE1E003FC4E9 /* StatsVC.swift in Sources */,
 				0028D4A725A8EDF9008BEADF /* ViewController.swift in Sources */,
 				0028D4BB25A8EF75008BEADF /* WarVC.swift in Sources */,
 				0028D4A325A8EDF9008BEADF /* AppDelegate.swift in Sources */,

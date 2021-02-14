@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let warVC = WarVC(nibName: "WarVC", bundle: nil)
-        window?.rootViewController = warVC
+        let navVC = UINavigationController(rootViewController: warVC)
+        window?.rootViewController = navVC //warVC
         
     }
 

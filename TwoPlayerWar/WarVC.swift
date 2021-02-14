@@ -48,6 +48,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController!.navigationBar.isHidden = true
+        
         winLabel.isHidden = true
         
         for suit in Suit.allCases {
@@ -87,6 +89,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
+        
+        //gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
@@ -335,43 +339,49 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
         
-        //endTime = Date()
-        //matchTime = endTime.timeIntervalSince(startTime)
-        stats.endTime = Date()
-        stats.matchTime = stats.endTime.timeIntervalSince(stats.startTime)
+        let statsVC = StatsVC(stats: stats)
+        navigationController!.pushViewController(statsVC, animated: true)
         
-        let totalSeconds = Int(stats.matchTime)
-        let totalMinutes = totalSeconds / 60
-        let totalHours = totalMinutes / 60
-        let minutesLeft = totalMinutes - (totalHours * 60)
-        let secondsLeft = totalSeconds - (totalMinutes * 60)
+        /*
+         //endTime = Date()
+                 //matchTime = endTime.timeIntervalSince(startTime)
+                 stats.endTime = Date()
+                 stats.matchTime = stats.endTime.timeIntervalSince(stats.startTime)
+                 
+                 let totalSeconds = Int(stats.matchTime)
+                 let totalMinutes = totalSeconds / 60
+                 let totalHours = totalMinutes / 60
+                 let minutesLeft = totalMinutes - (totalHours * 60)
+                 let secondsLeft = totalSeconds - (totalMinutes * 60)
+                 
+                 var fixedMatchTime = ""
+                 if totalHours != 0 { fixedMatchTime += "\(totalHours)h:"}
+                 fixedMatchTime += "\(minutesLeft)m:\(secondsLeft)s"
+                 
+                 matchTimeLabel.text = fixedMatchTime
+                 matchTimeLabel.isHidden = false
+                 
+                 if player == "Player 1" {
+                     p1ResultLabel.text = "LOSE"
+                     p1ResultLabel.textColor = .red
+                     p1ResultLabel.isHidden = false
+                     
+                     p2ResultLabel.text = "WIN"
+                     p2ResultLabel.textColor = .green
+                     p2ResultLabel.isHidden = false
+                 } else {
+                     p1ResultLabel.text = "WIN"
+                     p1ResultLabel.textColor = .green
+                     p1ResultLabel.isHidden = false
+                     
+                     p2ResultLabel.text = "LOSE"
+                     p2ResultLabel.textColor = .red
+                     p2ResultLabel.isHidden = false
+                 }
+                 
+                 againButton.isHidden = false
+         */
         
-        var fixedMatchTime = ""
-        if totalHours != 0 { fixedMatchTime += "\(totalHours)h:"}
-        fixedMatchTime += "\(minutesLeft)m:\(secondsLeft)s"
-        
-        matchTimeLabel.text = fixedMatchTime
-        matchTimeLabel.isHidden = false
-        
-        if player == "Player 1" {
-            p1ResultLabel.text = "LOSE"
-            p1ResultLabel.textColor = .red
-            p1ResultLabel.isHidden = false
-            
-            p2ResultLabel.text = "WIN"
-            p2ResultLabel.textColor = .green
-            p2ResultLabel.isHidden = false
-        } else {
-            p1ResultLabel.text = "WIN"
-            p1ResultLabel.textColor = .green
-            p1ResultLabel.isHidden = false
-            
-            p2ResultLabel.text = "LOSE"
-            p2ResultLabel.textColor = .red
-            p2ResultLabel.isHidden = false
-        }
-        
-        againButton.isHidden = false
     }
     
     /*
