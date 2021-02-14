@@ -21,6 +21,7 @@
 		00698EFF25D9CE1E003FC4E9 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */; };
 		00B00F5A25B7897100A95433 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B00F5925B7897100A95433 /* Cards.swift */; };
 		00C5F27F25D5C5CB00ECE118 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5F27E25D5C5CB00ECE118 /* Stats.swift */; };
+		00EDAD2025D9E74A00560A3E /* war bugs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 00EDAD1F25D9E74A00560A3E /* war bugs.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
 		00B00F5925B7897100A95433 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		00C5F27E25D5C5CB00ECE118 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		00EDAD1F25D9E74A00560A3E /* war bugs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "war bugs.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				0028D4AB25A8EDFA008BEADF /* Assets.xcassets */,
 				0028D4AD25A8EDFA008BEADF /* LaunchScreen.storyboard */,
 				0028D4B025A8EDFA008BEADF /* Info.plist */,
+				00EDAD1F25D9E74A00560A3E /* war bugs.txt */,
 			);
 			path = TwoPlayerWar;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				0028D4C125A9145F008BEADF /* PlayerArea.xib in Resources */,
 				0028D4AF25A8EDFA008BEADF /* LaunchScreen.storyboard in Resources */,
+				00EDAD2025D9E74A00560A3E /* war bugs.txt in Resources */,
 				0028D4BA25A8EF75008BEADF /* WarVC.xib in Resources */,
 				0028D4AC25A8EDFA008BEADF /* Assets.xcassets in Resources */,
 				00698EFE25D9CE1E003FC4E9 /* StatsVC.xib in Resources */,
