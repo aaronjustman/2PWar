@@ -341,47 +341,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         let statsVC = StatsVC(stats: stats)
         navigationController!.pushViewController(statsVC, animated: true)
-        
-        /*
-         //endTime = Date()
-                 //matchTime = endTime.timeIntervalSince(startTime)
-                 stats.endTime = Date()
-                 stats.matchTime = stats.endTime.timeIntervalSince(stats.startTime)
-                 
-                 let totalSeconds = Int(stats.matchTime)
-                 let totalMinutes = totalSeconds / 60
-                 let totalHours = totalMinutes / 60
-                 let minutesLeft = totalMinutes - (totalHours * 60)
-                 let secondsLeft = totalSeconds - (totalMinutes * 60)
-                 
-                 var fixedMatchTime = ""
-                 if totalHours != 0 { fixedMatchTime += "\(totalHours)h:"}
-                 fixedMatchTime += "\(minutesLeft)m:\(secondsLeft)s"
-                 
-                 matchTimeLabel.text = fixedMatchTime
-                 matchTimeLabel.isHidden = false
-                 
-                 if player == "Player 1" {
-                     p1ResultLabel.text = "LOSE"
-                     p1ResultLabel.textColor = .red
-                     p1ResultLabel.isHidden = false
-                     
-                     p2ResultLabel.text = "WIN"
-                     p2ResultLabel.textColor = .green
-                     p2ResultLabel.isHidden = false
-                 } else {
-                     p1ResultLabel.text = "WIN"
-                     p1ResultLabel.textColor = .green
-                     p1ResultLabel.isHidden = false
-                     
-                     p2ResultLabel.text = "LOSE"
-                     p2ResultLabel.textColor = .red
-                     p2ResultLabel.isHidden = false
-                 }
-                 
-                 againButton.isHidden = false
-         */
-        
     }
     
     /*
