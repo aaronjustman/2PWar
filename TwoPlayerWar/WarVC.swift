@@ -36,6 +36,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
     var isWar = false, warIsOver = false
+    var didEnd = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -90,7 +91,18 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
         
-        gameOver(for: "Player 1")
+        //gameOver(for: "Player 1")
+        
+        var turns = 0
+        while true {
+            guard !didEnd else {
+                break
+            }
+            print("turns:", turns)
+            play(for: "Player 1")
+            play(for: "Player 2")
+            turns += 1
+        }
     }
     
     func play(for player: String) {
@@ -337,6 +349,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     func gameOver(for player: String) {
+        didEnd = true
         print("Game over! \(player) loses!")
         
         stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"
