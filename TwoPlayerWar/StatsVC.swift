@@ -37,6 +37,8 @@ class StatsVC: UIViewController {
         p1WinLoseLabel.text = (stats.winner == "Player 1") ? "WIN!" : "LOSE!"
         var bottomStack = p1StatsStack.arrangedSubviews[1] as! UIStackView
         let p1StatsValuesStack = bottomStack.arrangedSubviews[1] as! UIStackView
+        var matchTimeLabel = p1StatsValuesStack.arrangedSubviews.first as! UILabel
+        matchTimeLabel.text = stats.fixedMatchTime
         for view in p1StatsValuesStack.arrangedSubviews[1...5] {
             let label = view as! UILabel
             label.text = String(currentStats[currentStat])
@@ -47,6 +49,8 @@ class StatsVC: UIViewController {
         p2WinLoseLabel.text = (stats.winner == "Player 2") ? "WIN!" : "LOSE!"
         bottomStack = p2StatsStack.arrangedSubviews[1] as! UIStackView
         let p2StatsValuesStack = bottomStack.arrangedSubviews[1] as! UIStackView
+        matchTimeLabel = p2StatsValuesStack.arrangedSubviews.first as! UILabel
+        matchTimeLabel.text = stats.fixedMatchTime
         for view in p2StatsValuesStack.arrangedSubviews[1...5] {
             let label = view as! UILabel
             label.text = String(currentStats[currentStat])

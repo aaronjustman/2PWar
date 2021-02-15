@@ -12,6 +12,20 @@ struct Stats {
     let player1, player2: [Card]
     var startTime, endTime: Date!
     var matchTime: Double = 0
+    var fixedMatchTime: String {
+        print("match time:", matchTime)
+        let totalSeconds = Int(matchTime)
+        let totalMinutes = totalSeconds / 60
+        let totalHours = totalMinutes / 60
+        let minutesLeft = totalMinutes - (totalHours * 60)
+        let secondsLeft = totalSeconds - (totalMinutes * 60)
+        
+        var matchTimeString = ""
+        if totalHours != 0 { matchTimeString += "\(totalHours)h:"}
+        matchTimeString += "\(minutesLeft)m:\(secondsLeft)s"
+        
+        return matchTimeString
+    }
     var winner = ""
     var p1TotalCardsWon = 0, p2TotalCardsWon = 0
     var p1TotalHandsWon = 0, p2TotalHandsWon = 0

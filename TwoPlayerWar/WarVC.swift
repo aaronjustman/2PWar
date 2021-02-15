@@ -353,6 +353,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         print("Game over! \(player) loses!")
         
         stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"
+        stats.endTime = Date()
+        stats.matchTime = stats.endTime.timeIntervalSince(stats.startTime)
         
         let statsVC = StatsVC(stats: stats)
         navigationController!.pushViewController(statsVC, animated: true)
