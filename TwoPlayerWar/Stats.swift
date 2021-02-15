@@ -12,6 +12,7 @@ struct Stats {
     let player1, player2: [Card]
     var startTime, endTime: Date!
     var matchTime: Double = 0
+    var winner = ""
     var p1TotalCardsWon = 0, p2TotalCardsWon = 0
     var p1TotalHandsWon = 0, p2TotalHandsWon = 0
     var p1TotalHandsLost = 0, p2TotalHandsLost = 0
@@ -23,6 +24,14 @@ struct Stats {
         self.player2 = player2
         
         startTime = Date()
+    }
+    
+    var p1Stats: [Int] {
+        return [p1TotalCardsWon, p1TotalHandsWon, p1TotalHandsLost, p1WarsWon, p1WarsLost]
+    }
+    
+    var p2Stats: [Int] {
+        return [p2TotalCardsWon, p2TotalHandsWon, p2TotalHandsLost, p2WarsWon, p2WarsLost]
     }
     
 }

@@ -339,6 +339,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
     func gameOver(for player: String) {
         print("Game over! \(player) loses!")
         
+        stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"
+        
         let statsVC = StatsVC(stats: stats)
         navigationController!.pushViewController(statsVC, animated: true)
     }
