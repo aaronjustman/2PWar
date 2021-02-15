@@ -36,14 +36,12 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
     var isWar = false, warIsOver = false
-    var didEnd = false
+    // Debug simulation only var didEnd = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
     var warCards = [Card]()
     
-    //var startTime = Date(), endTime = Date()
-    //var matchTime: Double = 0
     var stats: Stats!
     
     override func viewDidLoad() {
@@ -93,16 +91,21 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         //gameOver(for: "Player 1")
         
-        var turns = 0
-        while true {
-            guard !didEnd else {
-                break
-            }
-            print("turns:", turns)
-            play(for: "Player 1")
-            play(for: "Player 2")
-            turns += 1
-        }
+        /*
+         Debug simulation
+         
+         var turns = 0
+         while true {
+             guard !didEnd else {
+                 break
+             }
+             print("turns:", turns)
+             play(for: "Player 1")
+             play(for: "Player 2")
+             turns += 1
+         }
+         */
+        
     }
     
     func play(for player: String) {
@@ -160,8 +163,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         player2Area.totalCardsWonLabel.text = "0"
         matchTimeLabel.text = ""
         matchTimeLabel.isHidden = true
-        //startTime = Date()
-        //endTime = Date()
         stats = Stats(player1: player1, player2: player2)
         cardForP1 = true
         p1DidPlay = false
@@ -256,13 +257,11 @@ class WarVC: UIViewController, PlayButtonDelegate {
             winLabel.isHidden = false
             player1.insert(contentsOf: [card1, card2], at: 0)
             stats.p1TotalCardsWon += 2
-            //player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
             stats.p1TotalHandsWon += 1
             stats.p2TotalHandsLost += 1
             if !warCards.isEmpty {
                 player1.insert(contentsOf: warCards, at: 0)
                 stats.p1TotalCardsWon += warCards.count
-                //player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
                 stats.p1WarsWon += 1
                 stats.p2WarsLost += 1
                 stats.p1TotalHandsWon += 1
@@ -349,7 +348,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     func gameOver(for player: String) {
-        didEnd = true
+        // Debug simulation only didEnd = true
         print("Game over! \(player) loses!")
         
         stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"

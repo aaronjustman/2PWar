@@ -32,11 +32,6 @@ protocol PlayButtonDelegate {
     
     var playerNumber = 0
     var playDelegate: PlayButtonDelegate!
-//    var totalCardsWon: Int = 0 {
-//        willSet {
-//            totalCardsWonLabel.text = String(newValue)
-//        }
-//    }
         
     /*
     // Only override draw() if you perform custom drawing.

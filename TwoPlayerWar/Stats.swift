@@ -13,7 +13,6 @@ struct Stats {
     var startTime, endTime: Date!
     var matchTime: Double = 0
     var fixedMatchTime: String {
-        print("match time:", matchTime)
         let totalSeconds = Int(matchTime)
         let totalMinutes = totalSeconds / 60
         let totalHours = totalMinutes / 60
