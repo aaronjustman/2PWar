@@ -9,6 +9,9 @@ import UIKit
 
 class StatsVC: UIViewController {
     
+    @IBOutlet weak var p1StatsStack: UIStackView!
+    @IBOutlet weak var p2StatsStack: UIStackView!
+    
     let stats: Stats!
     
     init(stats: Stats) {
@@ -27,6 +30,7 @@ class StatsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        p2StatsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
 
 

@@ -90,7 +90,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
         
-        //gameOver(for: "Player 1")
+        gameOver(for: "Player 1")
     }
     
     func play(for player: String) {
