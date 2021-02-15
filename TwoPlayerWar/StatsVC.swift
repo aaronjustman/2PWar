@@ -31,10 +31,8 @@ class StatsVC: UIViewController {
 
         p2StatsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-        var currentStats = stats.p1Stats + stats.p2Stats
-        //print("stats count:", currentStats.count)
+        let currentStats = stats.p1Stats + stats.p2Stats
         var currentStat = 0
-        //var times = 0
         let p1WinLoseLabel = p1StatsStack.arrangedSubviews.first as! UILabel
         p1WinLoseLabel.text = (stats.winner == "Player 1") ? "WIN!" : "LOSE!"
         var bottomStack = p1StatsStack.arrangedSubviews[1] as! UIStackView
@@ -43,23 +41,10 @@ class StatsVC: UIViewController {
             let label = view as! UILabel
             label.text = String(currentStats[currentStat])
             currentStat += 1
-            
-            /*
-            //currentStat = 0
-            let titlesStack = oStack as! UIStackView
-            for iView in titlesStack.arrangedSubviews {
-                //print("times:", times)
-                //if times == 0 || times > 6 || times == 7 || times > 13 { times += 1; continue }
-                
-                let label = iView as! UILabel
-                //print("label?", label, "current stat?", currentStat , currentStats[currentStat])
-                label.text = String(currentStats[currentStat])
-                currentStat += 1
-                //times += 1
-            }
-             */
         }
         
+        let p2WinLoseLabel = p2StatsStack.arrangedSubviews.first as! UILabel
+        p2WinLoseLabel.text = (stats.winner == "Player 2") ? "WIN!" : "LOSE!"
         bottomStack = p2StatsStack.arrangedSubviews[1] as! UIStackView
         let p2StatsValuesStack = bottomStack.arrangedSubviews[1] as! UIStackView
         for view in p2StatsValuesStack.arrangedSubviews[1...5] {
@@ -67,19 +52,6 @@ class StatsVC: UIViewController {
             label.text = String(currentStats[currentStat])
             currentStat += 1
         }
-        
-//        currentStats = stats.p2Stats
-//        currentStat = 0
-//        let p2WinLoseLabel = p2StatsStack.arrangedSubviews.first as! UILabel
-//        p2WinLoseLabel.text = (stats.winner == "Player 2") ? "WIN!" : "LOSE!"
-//        for oView in p2StatsStack.arrangedSubviews[1] {
-//            let stack = oView as! UIStackView
-//            for iView in stack.arrangedSubviews {
-//                let label = iView as! UILabel
-//                label.text = String(currentStats[currentStat])
-//                currentStat += 1
-//            }
-//        }
     }
 
 
