@@ -36,7 +36,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
     var isWar = false, warIsOver = false
-    // Debug simulation only var didEnd = false
+    var didEnd = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -91,9 +91,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         //gameOver(for: "Player 1")
         
-        /*
-         Debug simulation
-         
          var turns = 0
          while true {
              guard !didEnd else {
@@ -104,7 +101,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
              play(for: "Player 2")
              turns += 1
          }
-         */
         
     }
     
@@ -348,7 +344,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     func gameOver(for player: String) {
-        // Debug simulation only didEnd = true
+        didEnd = true
         print("Game over! \(player) loses!")
         
         stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"
