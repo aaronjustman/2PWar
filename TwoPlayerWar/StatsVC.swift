@@ -13,6 +13,7 @@ class StatsVC: UIViewController {
     @IBOutlet weak var p2StatsStack: UIStackView!
     
     let stats: Stats!
+    weak var warVCRef: WarVC!
     
     init(stats: Stats) {
         self.stats = stats
@@ -62,6 +63,17 @@ class StatsVC: UIViewController {
         overallRecordLabel.text = "? ? ?"
     }
 
+    @IBAction func playAgain() {
+        //warVCRef.newGame = true
+        
+//        dismiss(animated: true) {
+//            self.warVCRef.playAgain()
+//        }
+        dismiss(animated: true)
+        //navigationController?.popViewController(animated: true)
+        
+        //warVCRef.playAgain()
+    }
 
     /*
     // MARK: - Navigation

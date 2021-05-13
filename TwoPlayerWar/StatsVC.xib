@@ -248,6 +248,18 @@
                         <constraint firstAttribute="width" constant="356" id="zJb-w1-SBg"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blc-UL-rjh">
+                    <rect key="frame" x="114" y="425.5" width="186" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="caN-E4-X4Q"/>
+                        <constraint firstAttribute="width" constant="186" id="oer-N1-ef6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="28"/>
+                    <state key="normal" title="Play again?"/>
+                    <connections>
+                        <action selector="playAgain" destination="-2" eventType="touchUpInside" id="dFS-lP-DTi"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -255,7 +267,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uow-EU-KIH" secondAttribute="bottom" constant="100" id="GJa-fD-GAL"/>
                 <constraint firstItem="X3f-F5-5AZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="No4-pl-z1Y"/>
                 <constraint firstItem="X3f-F5-5AZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="Y9d-9X-ZER"/>
+                <constraint firstItem="blc-UL-rjh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a1m-VU-muI"/>
                 <constraint firstItem="uow-EU-KIH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dYs-Gj-DE3"/>
+                <constraint firstItem="blc-UL-rjh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uaa-KM-cR3"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
