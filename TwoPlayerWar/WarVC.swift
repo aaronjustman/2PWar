@@ -36,7 +36,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
     var isWar = false, warIsOver = false
-    var didEnd = false,  newGame = false
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -88,21 +87,9 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
-        
-        //gameOver(for: "Player 1")
-        
-        //resetForNextTurn()
-        p1Play(play1Button)
-        p2Play(play2Button)
-        //gameOver(for: "Player 1")
-        p1PlayWar()
-        p2PlayWar()
-        gameOver(for: "Player 1")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         for view in p1WarCardsStack.arrangedSubviews {
             let imageView = view as! UIImageView
             imageView.image = .none
@@ -111,17 +98,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
             let imageView = view as! UIImageView
             imageView.image = .none
         }
-//        if newGame { playAgain()  }// else { resetForNextTurn() }
-//        var turns = 0
-//        while true {
-//            guard !didEnd else {
-//                break
-//            }
-//            print("turns:", turns)
-//            play(for: "Player 1")
-//            play(for: "Player 2")
-//            turns += 1
-//        }
     }
     
     func play(for player: String) {
@@ -147,7 +123,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
-            } else { didEnd = true; gameOver(for: "Player 1") }
+            } else { gameOver(for: "Player 1") }
         }
         if turnIsOver { evaluateCards() }
     }
@@ -164,14 +140,12 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlay = true
                 turnIsOver = p1DidPlay && p2DidPlay
-            } else { didEnd = true; gameOver(for: "Player 2") }
+            } else { gameOver(for: "Player 2") }
         }
         if turnIsOver { evaluateCards() }
     }
     
     @IBAction func playAgain() {
-        newGame = false
-        
         self.player1.removeAll()
         self.player2.removeAll()
         self.warCards.removeAll()
@@ -182,8 +156,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
         self.matchTimeLabel.text = ""
         self.matchTimeLabel.isHidden = true
         stats = Stats(player1: player1, player2: player2)
-        
-        
         
         cardForP1 = true
         p1DidPlay = false
@@ -204,16 +176,8 @@ class WarVC: UIViewController, PlayButtonDelegate {
         deal()
         player1Area.cardsLeft = String(player1.count)
         player2Area.cardsLeft = String(player2.count)
-        //resetForNextTurn()
         
-        
-//        let blueDeck = UIImage(imageLiteralResourceName: "deck-blue")
-//        player1Area.playButton.isEnabled = true
-//        player1Area.deckImage.image = blueDeck
-//        player2Area.playButton.isEnabled = true
-//        player2Area.deckImage.image = blueDeck
-        
-        
+        resetForNextTurn()
     }
     
     @objc func p1PlayWar() {
@@ -229,7 +193,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                } else { didEnd = true; gameOver(for: "Player 1"); break; }
+                } else { gameOver(for: "Player 1"); break; }
             }
             if let nextCard = player1.popLast() {
                 card1 = nextCard
@@ -237,7 +201,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 player1Area.cardsLeft = String(player1.count)
                 p1DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
-            } else { didEnd = true; gameOver(for: "Player 1") }
+            } else { gameOver(for: "Player 1") }
         }
         if warIsOver { evaluateCards() }
     }
@@ -255,7 +219,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     warCards.append(nextCard)
                     cardsToAdd -= 1
-                } else { didEnd = true; gameOver(for: "Player 2"); break; }
+                } else { gameOver(for: "Player 2"); break; }
             }
             if let nextCard = player2.popLast() {
                 card2 = nextCard
@@ -263,7 +227,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
                 player2Area.cardsLeft = String(player2.count)
                 p2DidPlayWar = true
                 warIsOver = p1DidPlayWar && p2DidPlayWar
-            } else { didEnd = true; gameOver(for: "Player 2") }
+            } else { gameOver(for: "Player 2") }
         }
         if warIsOver { evaluateCards() }
     }
@@ -341,14 +305,12 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     func resetForNextTurn() {
-        print("reseting...")
         player1Area.cardsLeft = String(player1.count)
         player1Area.totalCardsWonLabel.text = String(stats.p1TotalCardsWon)
         player2Area.cardsLeft = String(player2.count)
         player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         
         if warIsOver {
-            print("war is over...")
             p1DidPlayWar = false
             p2DidPlayWar = false
             warIsOver = false
@@ -380,7 +342,6 @@ class WarVC: UIViewController, PlayButtonDelegate {
     }
     
     func gameOver(for player: String) {
-        //didEnd = true
         print("Game over! \(player) loses!")
         
         stats.winner = (player == "Player 1") ? "Player 2" : "Player 1"
@@ -389,14 +350,10 @@ class WarVC: UIViewController, PlayButtonDelegate {
         
         let statsVC = StatsVC(stats: stats)
         statsVC.warVCRef = self
-//        DispatchQueue.main.async {
-//            self.playAgain()
-//        }
-        newGame = true
+        
         playAgain()
-        resetForNextTurn()
+        
         present(statsVC, animated: true)
-        //navigationController!.pushViewController(statsVC, animated: true)
     }
     
     /*

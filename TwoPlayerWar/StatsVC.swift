@@ -64,15 +64,7 @@ class StatsVC: UIViewController {
     }
 
     @IBAction func playAgain() {
-        //warVCRef.newGame = true
-        
-//        dismiss(animated: true) {
-//            self.warVCRef.playAgain()
-//        }
         dismiss(animated: true)
-        //navigationController?.popViewController(animated: true)
-        
-        //warVCRef.playAgain()
     }
 
     /*
