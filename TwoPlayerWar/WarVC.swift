@@ -25,6 +25,7 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
     @IBOutlet weak var p1CardIV: UIImageView!
     @IBOutlet weak var p2CardIV: UIImageView!
     @IBOutlet weak var matchTimeLabel: UILabel!
+    @IBOutlet weak var optionsButton: UIButton!
     @IBOutlet weak var adBanner: GADBannerView!
     
     var deck = [Card]()
@@ -361,6 +362,11 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
         playAgain()
         
         present(statsVC, animated: true)
+    }
+    
+    @IBAction func options() {
+        let optionsVC = OptionsVC()
+        present(optionsVC, animated: true)
     }
     
     // MARK: - GADBannerViewDelegate

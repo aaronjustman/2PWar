@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00238CCE264F261D008604C3 /* OptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00238CCC264F261D008604C3 /* OptionsVC.xib */; };
+		00238CCF264F261D008604C3 /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00238CCD264F261D008604C3 /* OptionsVC.swift */; };
 		0028D4A325A8EDF9008BEADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4A225A8EDF9008BEADF /* AppDelegate.swift */; };
 		0028D4A525A8EDF9008BEADF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4A425A8EDF9008BEADF /* SceneDelegate.swift */; };
 		0028D4A725A8EDF9008BEADF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028D4A625A8EDF9008BEADF /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00238CCC264F261D008604C3 /* OptionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsVC.xib; sourceTree = "<group>"; };
+		00238CCD264F261D008604C3 /* OptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		0028D49F25A8EDF9008BEADF /* TwoPlayerWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoPlayerWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0028D4A225A8EDF9008BEADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0028D4A425A8EDF9008BEADF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				00698EFD25D9CE1E003FC4E9 /* StatsVC.swift */,
 				00B00F5925B7897100A95433 /* Cards.swift */,
 				00C5F27E25D5C5CB00ECE118 /* Stats.swift */,
+				00238CCC264F261D008604C3 /* OptionsVC.xib */,
+				00238CCD264F261D008604C3 /* OptionsVC.swift */,
 				0028D4AB25A8EDFA008BEADF /* Assets.xcassets */,
 				0028D4AD25A8EDFA008BEADF /* LaunchScreen.storyboard */,
 				0028D4B025A8EDFA008BEADF /* Info.plist */,
@@ -180,6 +186,7 @@
 				0028D4C125A9145F008BEADF /* PlayerArea.xib in Resources */,
 				0028D4AF25A8EDFA008BEADF /* LaunchScreen.storyboard in Resources */,
 				00EDAD2025D9E74A00560A3E /* war bugs.txt in Resources */,
+				00238CCE264F261D008604C3 /* OptionsVC.xib in Resources */,
 				0028D4BA25A8EF75008BEADF /* WarVC.xib in Resources */,
 				0028D4AC25A8EDFA008BEADF /* Assets.xcassets in Resources */,
 				00698EFE25D9CE1E003FC4E9 /* StatsVC.xib in Resources */,
@@ -237,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00698EFF25D9CE1E003FC4E9 /* StatsVC.swift in Sources */,
+				00238CCF264F261D008604C3 /* OptionsVC.swift in Sources */,
 				0028D4A725A8EDF9008BEADF /* ViewController.swift in Sources */,
 				0028D4BB25A8EF75008BEADF /* WarVC.swift in Sources */,
 				0028D4A325A8EDF9008BEADF /* AppDelegate.swift in Sources */,
