@@ -22,7 +22,7 @@ class OptionsVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func updateWarCards(sender: UISlider) {
+    @IBAction func updateWarCards(_ sender: UISlider, forEvent event: UIEvent) {
         delegate?.updateWarCardsTo(numberOfCards: Int(sender.value))
     }
     
