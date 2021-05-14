@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -200,6 +201,27 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-ee-FQo">
+                    <rect key="frame" x="364" y="278" width="50" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ezq-8k-t62"/>
+                        <constraint firstAttribute="width" constant="50" id="bAo-d0-674"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acX-VN-hQK">
+                    <rect key="frame" x="370" y="284.5" width="38" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="TmV-Ca-fFB"/>
+                        <constraint firstAttribute="height" constant="37" id="taH-W3-MNt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="regular"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -221,6 +243,8 @@
                 <constraint firstItem="yhU-sI-Tcz" firstAttribute="centerX" secondItem="Vwo-qN-QQ1" secondAttribute="centerX" id="8lh-4N-7at"/>
                 <constraint firstItem="d5G-d7-iDm" firstAttribute="firstBaseline" secondItem="I95-90-e5f" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="9VP-64-Wgz"/>
                 <constraint firstItem="2Lg-BT-zCv" firstAttribute="width" secondItem="wdL-HN-y2b" secondAttribute="width" multiplier="0.841667" id="9vG-Bf-Dms"/>
+                <constraint firstItem="acX-VN-hQK" firstAttribute="centerX" secondItem="iPR-ee-FQo" secondAttribute="centerX" id="A2W-Wj-66p"/>
+                <constraint firstItem="iPR-ee-FQo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Ad4-rz-XA0"/>
                 <constraint firstItem="8Y7-YS-NGh" firstAttribute="centerX" secondItem="gKW-Ss-4RW" secondAttribute="centerX" id="Dfz-f7-7dt"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FY2-bb-2f5"/>
                 <constraint firstItem="w88-7J-Eyt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OQK-Da-4VK"/>
@@ -235,7 +259,9 @@
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="top" secondItem="d5G-d7-iDm" secondAttribute="bottom" constant="14" id="amh-kG-oUX"/>
                 <constraint firstItem="CBS-pt-QYU" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="cYM-hT-0QP"/>
                 <constraint firstItem="I7H-fS-LQy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLv-YY-zD0"/>
+                <constraint firstItem="acX-VN-hQK" firstAttribute="centerY" secondItem="iPR-ee-FQo" secondAttribute="centerY" id="fMQ-H7-gM0"/>
                 <constraint firstItem="xoV-mI-U3x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hLj-Ng-gbj"/>
+                <constraint firstItem="iPR-ee-FQo" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="159" id="iTq-Mf-yz4"/>
                 <constraint firstItem="YYR-Qe-MZi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jA9-DQ-dai"/>
                 <constraint firstItem="2Lg-BT-zCv" firstAttribute="centerX" secondItem="wdL-HN-y2b" secondAttribute="centerX" id="koe-hd-rsF"/>
                 <constraint firstItem="gKW-Ss-4RW" firstAttribute="top" secondItem="w88-7J-Eyt" secondAttribute="bottom" constant="175" id="kwi-l5-Wcq"/>
@@ -252,6 +278,7 @@
         <image name="ace-clubs" width="67.333335876464844" height="34"/>
         <image name="ace-diamonds" width="67.333335876464844" height="34"/>
         <image name="ace-hearts" width="67.333335876464844" height="34"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
