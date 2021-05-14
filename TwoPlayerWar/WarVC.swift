@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
+class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerViewDelegate {
     
     @IBOutlet weak var player1Area: PlayerArea!
     @IBOutlet weak var player2Area: PlayerArea!
@@ -39,6 +39,7 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
     var isWar = false, warIsOver = false
+    var numberOfWarCards = 3
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -108,6 +109,8 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
         }
     }
     
+    // MARK: - PlayButtonDelegate
+    
     func play(for player: String) {
         switch player {
         case "Player 1":
@@ -118,6 +121,18 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
             return
         }
     }
+    
+    // MARK: - OptionsDelegate
+    
+    func updateWarCardsTo(numberOfCards: Int) {
+        numberOfWarCards = numberOfCards
+    }
+    
+    func resetGame() {
+        playAgain()
+    }
+    
+    // MARK: - IBAction
 
     @IBAction func p1Play(_ sender: UIButton) {
         if turnIsOver { resetForNextTurn() }
@@ -188,14 +203,18 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
         resetForNextTurn()
     }
     
+    // MARK: - Functions
+    
     @objc func p1PlayWar() {
         if warIsOver { resetForNextTurn() }
         else {
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
             player1Area.deckImage.image = grayDeck
-            var cardsToAdd = 3
-            while cardsToAdd > 0 {
+            
+            // add the first three to the war cards stack of image views (and to the 'pot')
+            var cardsToAdd = numberOfWarCards       // set via options
+            while cardsToAdd > (numberOfWarCards - 3) {
                 if let nextCard = player1.popLast() {
                     let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
@@ -203,6 +222,16 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1"); break; }
             }
+            
+            // add the rest of the war cards to the 'pot'
+            while cardsToAdd > 0 {
+                if let nextCard = player1.popLast() {
+                    warCards.append(nextCard)
+                    cardsToAdd -= 1
+                } else { gameOver(for: "Player 1") }
+            }
+            
+            // gotta have one left over as the battle card
             if let nextCard = player1.popLast() {
                 card1 = nextCard
                 p1CardIV.image = UIImage(imageLiteralResourceName: "\(card1.rank)-\(card1.suit)")
@@ -220,8 +249,10 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
             player2Area.deckImage.image = grayDeck
-            var cardsToAdd = 3
-            while cardsToAdd > 0 {
+            
+            // add the first three to the war cards stack of image views (and to the 'pot')
+            var cardsToAdd = numberOfWarCards       // set via options
+            while cardsToAdd > (numberOfWarCards - 3) {
                 if let nextCard = player2.popLast() {
                     let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
                     warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
@@ -229,6 +260,16 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2"); break; }
             }
+            
+            // add the rest of the war cards to the 'pot'
+            while cardsToAdd > 0 {
+                if let nextCard = player2.popLast() {
+                    warCards.append(nextCard)
+                    cardsToAdd -= 1
+                } else { gameOver(for: "Player 2") }
+            }
+            
+            // gotta have one left over as the battle card
             if let nextCard = player2.popLast() {
                 card2 = nextCard
                 p2CardIV.image = UIImage(imageLiteralResourceName: "\(card2.rank)-\(card2.suit)")
