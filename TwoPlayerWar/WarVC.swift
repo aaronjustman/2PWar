@@ -90,7 +90,7 @@ class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
         
-        adBanner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBanner.adUnitID = "ca-app-pub-3940256099942544/2934735716"    // TEST ADS!!! Replace with actual id
         adBanner.rootViewController = self
         adBanner.delegate = self
         adBanner.load(GADRequest())
