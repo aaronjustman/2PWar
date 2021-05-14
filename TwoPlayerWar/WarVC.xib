@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarVC" customModule="TwoPlayerWar" customModuleProvider="target">
             <connections>
+                <outlet property="adBanner" destination="CBS-pt-QYU" id="hij-BY-lx9"/>
                 <outlet property="againButton" destination="SmM-dD-TNm" id="EJ5-SU-SIk"/>
                 <outlet property="matchTimeLabel" destination="dWQ-lo-vap" id="RAB-jp-Pzl"/>
                 <outlet property="p1CardIV" destination="wdL-HN-y2b" id="t4H-lV-Tb9"/>

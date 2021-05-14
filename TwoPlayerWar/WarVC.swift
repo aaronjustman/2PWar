@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class WarVC: UIViewController, PlayButtonDelegate {
+class WarVC: UIViewController, PlayButtonDelegate, GADBannerViewDelegate {
     
     @IBOutlet weak var player1Area: PlayerArea!
     @IBOutlet weak var player2Area: PlayerArea!
@@ -24,6 +25,7 @@ class WarVC: UIViewController, PlayButtonDelegate {
     @IBOutlet weak var p1CardIV: UIImageView!
     @IBOutlet weak var p2CardIV: UIImageView!
     @IBOutlet weak var matchTimeLabel: UILabel!
+    @IBOutlet weak var adBanner: GADBannerView!
     
     var deck = [Card]()
     
@@ -87,6 +89,11 @@ class WarVC: UIViewController, PlayButtonDelegate {
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
+        
+        adBanner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBanner.rootViewController = self
+        adBanner.delegate = self
+        adBanner.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -354,6 +361,32 @@ class WarVC: UIViewController, PlayButtonDelegate {
         playAgain()
         
         present(statsVC, animated: true)
+    }
+    
+    // MARK: - GADBannerViewDelegate
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
     }
     
     /*
