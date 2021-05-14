@@ -7,14 +7,29 @@
 
 import UIKit
 
+protocol OptionsDelegate {
+    func updateWarCardsTo(numberOfCards: Int)
+    func resetGame()
+}
+
 class OptionsVC: UIViewController {
+    
+    var delegate: OptionsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func updateWarCards(sender: UISlider) {
+        delegate?.updateWarCardsTo(numberOfCards: Int(sender.value))
+    }
+    
+    @IBAction func resetGame() {
+        delegate?.resetGame()
+    }
+    
     @IBAction func cancel() {
         dismiss(animated: true)
     }
