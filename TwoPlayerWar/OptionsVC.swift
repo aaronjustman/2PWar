@@ -14,15 +14,20 @@ protocol OptionsDelegate {
 
 class OptionsVC: UIViewController {
     
+    @IBOutlet weak var warCardsSlider: UISlider!
+    @IBOutlet weak var numberOfWarCardsLabel: UILabel!
+    
     var delegate: OptionsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        warCardsSlider.value = 3
+        numberOfWarCardsLabel.text = "3"
     }
     
     @IBAction func updateWarCards(_ sender: UISlider, forEvent event: UIEvent) {
+        numberOfWarCardsLabel.text = "\(Int(sender.value))"
         delegate?.updateWarCardsTo(numberOfCards: Int(sender.value))
     }
     
