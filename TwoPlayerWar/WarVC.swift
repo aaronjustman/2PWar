@@ -26,6 +26,8 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
     @IBOutlet weak var p2CardIV: UIImageView!
     @IBOutlet weak var matchTimeLabel: UILabel!
     @IBOutlet weak var optionsButton: UIButton!
+    @IBOutlet weak var p1PlusWarCardsLabel: UILabel!
+    @IBOutlet weak var p2PlusWarCardsLabel: UILabel!
     @IBOutlet weak var adBanner: GADBannerView!
     
     var deck = [Card]()
@@ -89,6 +91,7 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             imageView.image = .none
         }
         p2WarCardsStack.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        p2PlusWarCardsLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
         
