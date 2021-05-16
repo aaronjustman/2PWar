@@ -1,22 +1,20 @@
 
-Bugs: NONE!
+Bugs:
+- Table not being cleared on new game or game reset (war cards stacks, plus cards labels).
+- Make sure total cards won is still being tallied correctly.
+- Change text on OptionsVC to black.
+- Change Cancel button to 'OK!'
+- Set constraints for the OptionsVC.
 
 Current:
-- Keep stats; display at the end of match
+
 
 Stats:
-	- Time of match *DONE*
-	- Total cards won *DONE*
 	-- PREMIUM STATS:
-		- Total hands won *DONE*
-		- Total hands lost *DONE*
-		- Wars won *DONE*
-		- Wars lost *DONE*
 		- Overall record (total individualized stats)
 		- number of 2x, 3x, 4x wars, etc. (store by dictionary of [Int:Int] where [multiplier:number]
 		- Individualized player stats (wins/losses, win/lose vs. any other players)
 
 To do (?):
-- Refactor stats into a struct (*DONE*) and implement a game manager (using user defaults) for tracking players and all-time stats, also will need a player refactor.
+- Implement a game manager (using user defaults) for tracking players and all-time stats, also will need a player refactor.
 - Start screen, to choose 1-player or 2-player, and to enter names.
-- Add cards to the war cards stack instead of overwriting on multiple wars.
