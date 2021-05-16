@@ -38,11 +38,11 @@
                         <action selector="resetGame" destination="-1" eventType="touchUpInside" id="PzE-ae-VgJ"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="03q-PO-zSI">
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="03q-PO-zSI">
                     <rect key="frame" x="95" y="219" width="225" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <imageReference key="minimumValueImage" image="1.circle" catalog="system" symbolScale="large"/>
+                    <imageReference key="minimumValueImage" image="3.circle" catalog="system" symbolScale="large"/>
                     <imageReference key="maximumValueImage" image="10.circle" catalog="system" symbolScale="large"/>
                     <connections>
                         <action selector="updateWarCards:forEvent:" destination="-1" eventType="valueChanged" id="3Xm-NX-Lcu"/>
@@ -77,8 +77,8 @@
         </view>
     </objects>
     <resources>
-        <image name="1.circle" catalog="system" width="128" height="121"/>
         <image name="10.circle" catalog="system" width="128" height="121"/>
+        <image name="3.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
