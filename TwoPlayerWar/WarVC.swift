@@ -40,8 +40,8 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
     var turnIsOver = false
     var isFacingP1 = true
     var p1DidPlayWar = false,  p2DidPlayWar = false
-    var isWar = false, warIsOver = false
-    var numberOfWarCards = 3
+    var isWar = false, isStillWar = false, warIsOver = false
+    var numberOfWarCards = 3, previousWarCards = 0
     
     var card1 = Card(suit: .clubs, rank: .two)
     var card2 = Card(suit: .clubs, rank: .two)
@@ -214,6 +214,11 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             player1Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
             player1Area.deckImage.image = grayDeck
+            if numberOfWarCards > 3 {
+                p1PlusWarCardsLabel.text = "+\(numberOfWarCards - 3)"
+                p1PlusWarCardsLabel.isHidden = false
+            }
+            //p1PlusWarCardsLabel.isHidden = false
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
@@ -252,6 +257,10 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             player2Area.playButton.isEnabled = false
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
             player2Area.deckImage.image = grayDeck
+            if numberOfWarCards > 3 {
+                p1PlusWarCardsLabel.text = "+\(numberOfWarCards - 3)"
+                p1PlusWarCardsLabel.isHidden = false
+            }
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
@@ -265,9 +274,12 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             }
             
             // add the rest of the war cards to the 'pot'
+            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
             while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
                     warCards.append(nextCard)
+                    extraWarCards += 1
+                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2") }
             }
@@ -335,6 +347,9 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             }
             player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         } else if card1.rank.cardValue == card2.rank.cardValue {
+            if isWar {
+                previousWarCards = warCards.count / 2
+            }
             isWar = true
             warIsOver = false
             p1DidPlayWar = false
@@ -365,6 +380,8 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
         if warIsOver {
             p1DidPlayWar = false
             p2DidPlayWar = false
+            p1PlusWarCardsLabel.isHidden = true
+            p2PlusWarCardsLabel.isHidden = true
             warIsOver = false
             isWar = false
             
