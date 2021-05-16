@@ -222,19 +222,26 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
+            
             while cardsToAdd > (numberOfWarCards - 3) {
                 if let nextCard = player1.popLast() {
-                    let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
-                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
+                    if cardsToAdd < 3 {
+                        let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd] as! UIImageView
+                        warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
+                    }
+                    
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1"); break; }
             }
             
             // add the rest of the war cards to the 'pot'
+            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
             while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
                     warCards.append(nextCard)
+                    extraWarCards += 1
+                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1") }
             }
@@ -258,16 +265,18 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             let grayDeck = UIImage(imageLiteralResourceName: "deck-gray")
             player2Area.deckImage.image = grayDeck
             if numberOfWarCards > 3 {
-                p1PlusWarCardsLabel.text = "+\(numberOfWarCards - 3)"
-                p1PlusWarCardsLabel.isHidden = false
+                p2PlusWarCardsLabel.text = "+\(numberOfWarCards - 3)"
+                p2PlusWarCardsLabel.isHidden = false
             }
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
             while cardsToAdd > (numberOfWarCards - 3) {
                 if let nextCard = player2.popLast() {
-                    let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
-                    warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
+                    if cardsToAdd < 3 {
+                        let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd] as! UIImageView
+                        warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
+                    }
                     warCards.append(nextCard)
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2"); break; }
@@ -279,7 +288,7 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
                 if let nextCard = player2.popLast() {
                     warCards.append(nextCard)
                     extraWarCards += 1
-                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
+                    p2PlusWarCardsLabel.text = "+\(numberOfWarCards)"
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2") }
             }
