@@ -435,7 +435,7 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
     }
     
     @IBAction func options() {
-        let optionsVC = OptionsVC()
+        let optionsVC = OptionsVC(currentWarCards: numberOfWarCards)
         optionsVC.delegate = self
         present(optionsVC, animated: true)
     }

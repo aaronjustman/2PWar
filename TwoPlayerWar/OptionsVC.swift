@@ -17,13 +17,24 @@ class OptionsVC: UIViewController {
     @IBOutlet weak var warCardsSlider: UISlider!
     @IBOutlet weak var numberOfWarCardsLabel: UILabel!
     
+    fileprivate var warCards = 3
+    
     var delegate: OptionsDelegate?
-
+    
+    init(currentWarCards: Int) {
+        warCards = currentWarCards
+        super.init(nibName: "OptionsVC", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        warCardsSlider.value = 3
-        numberOfWarCardsLabel.text = "3"
+        warCardsSlider.value = Float(warCards)
+        numberOfWarCardsLabel.text = "\(warCards)"
     }
     
     @IBAction func updateWarCards(_ sender: UISlider, forEvent event: UIEvent) {
