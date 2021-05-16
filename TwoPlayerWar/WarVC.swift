@@ -222,11 +222,10 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
-            
-            while cardsToAdd > (numberOfWarCards - 3) {
+            while cardsToAdd > 0 {
                 if let nextCard = player1.popLast() {
-                    if cardsToAdd < 3 {
-                        let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd] as! UIImageView
+                    if cardsToAdd <= 3 {
+                        let warCardIV = p1WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
                         warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     }
                     
@@ -235,16 +234,17 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
                 } else { gameOver(for: "Player 1"); break; }
             }
             
+            // NOT NECESSARY?
             // add the rest of the war cards to the 'pot'
-            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
-            while cardsToAdd > 0 {
-                if let nextCard = player1.popLast() {
-                    warCards.append(nextCard)
-                    extraWarCards += 1
-                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
-                    cardsToAdd -= 1
-                } else { gameOver(for: "Player 1") }
-            }
+//            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
+//            while cardsToAdd > 0 {
+//                if let nextCard = player1.popLast() {
+//                    warCards.append(nextCard)
+//                    extraWarCards += 1
+//                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
+//                    cardsToAdd -= 1
+//                } else { gameOver(for: "Player 1") }
+//            }
             
             // gotta have one left over as the battle card
             if let nextCard = player1.popLast() {
@@ -271,10 +271,10 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
-            while cardsToAdd > (numberOfWarCards - 3) {
+            while cardsToAdd > 0 {
                 if let nextCard = player2.popLast() {
-                    if cardsToAdd < 3 {
-                        let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd] as! UIImageView
+                    if cardsToAdd <= 3 {
+                        let warCardIV = p2WarCardsStack.arrangedSubviews[cardsToAdd - 1] as! UIImageView
                         warCardIV.image = UIImage(imageLiteralResourceName: "\(nextCard.rank)-\(nextCard.suit)")
                     }
                     warCards.append(nextCard)
@@ -283,15 +283,15 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
             }
             
             // add the rest of the war cards to the 'pot'
-            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
-            while cardsToAdd > 0 {
-                if let nextCard = player2.popLast() {
-                    warCards.append(nextCard)
-                    extraWarCards += 1
-                    p2PlusWarCardsLabel.text = "+\(numberOfWarCards)"
-                    cardsToAdd -= 1
-                } else { gameOver(for: "Player 2") }
-            }
+//            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
+//            while cardsToAdd > 0 {
+//                if let nextCard = player2.popLast() {
+//                    warCards.append(nextCard)
+//                    extraWarCards += 1
+//                    p2PlusWarCardsLabel.text = "+\(numberOfWarCards)"
+//                    cardsToAdd -= 1
+//                } else { gameOver(for: "Player 2") }
+//            }
             
             // gotta have one left over as the battle card
             if let nextCard = player2.popLast() {
