@@ -21,16 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of war cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="782-uu-bbI">
-                    <rect key="frame" x="110" y="191" width="195" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of war cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="782-uu-bbI">
+                    <rect key="frame" x="109.5" y="191" width="195" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="195" id="5tl-w6-d1F"/>
+                        <constraint firstAttribute="height" constant="20" id="CHO-0Y-hyj"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-dC-Kv6">
-                    <rect key="frame" x="157" y="348" width="103" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-dC-Kv6">
+                    <rect key="frame" x="155.5" y="515" width="103" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="3xQ-hb-Xh2"/>
+                        <constraint firstAttribute="width" constant="103" id="Vv7-xF-4yt"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                     <state key="normal" title="Reset game"/>
@@ -38,24 +44,19 @@
                         <action selector="resetGame" destination="-1" eventType="touchUpInside" id="PzE-ae-VgJ"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="03q-PO-zSI">
-                    <rect key="frame" x="95" y="219" width="225" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="03q-PO-zSI">
+                    <rect key="frame" x="94.5" y="219" width="225" height="30"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="8vj-di-JeY"/>
+                        <constraint firstAttribute="width" constant="221" id="Don-4w-ie8"/>
+                    </constraints>
                     <imageReference key="minimumValueImage" image="3.circle" catalog="system" symbolScale="large"/>
                     <imageReference key="maximumValueImage" image="10.circle" catalog="system" symbolScale="large"/>
                     <connections>
                         <action selector="updateWarCards:forEvent:" destination="-1" eventType="valueChanged" id="3Xm-NX-Lcu"/>
                     </connections>
                 </slider>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK7-Fh-4zB">
-                    <rect key="frame" x="184" y="433" width="48" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Cancel"/>
-                    <connections>
-                        <action selector="cancel" destination="-1" eventType="touchUpInside" id="sci-x6-ERb"/>
-                    </connections>
-                </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C12-Ud-Iyy">
                     <rect key="frame" x="300" y="248" width="18" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,16 +64,43 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thA-8A-607">
-                    <rect key="frame" x="186" y="256" width="49" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thA-8A-607">
+                    <rect key="frame" x="182.5" y="256" width="49" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="49" id="XHv-A9-w0T"/>
+                        <constraint firstAttribute="height" constant="47" id="wYH-kr-hQL"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK7-Fh-4zB">
+                    <rect key="frame" x="185" y="346" width="44" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="8oP-Y0-01I"/>
+                        <constraint firstAttribute="height" constant="40" id="DHR-Pk-SHO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
+                    <state key="normal" title="OK!"/>
+                    <connections>
+                        <action selector="cancel" destination="-1" eventType="touchUpInside" id="sci-x6-ERb"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.63529411759999999" green="0.84313725490000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="mAY-dC-Kv6" firstAttribute="centerX" secondItem="DK7-Fh-4zB" secondAttribute="centerX" id="025-C9-YYK"/>
+                <constraint firstItem="thA-8A-607" firstAttribute="centerX" secondItem="03q-PO-zSI" secondAttribute="centerX" id="4F2-Iw-Sl7"/>
+                <constraint firstItem="03q-PO-zSI" firstAttribute="centerX" secondItem="782-uu-bbI" secondAttribute="centerX" id="DKK-fu-bDX"/>
+                <constraint firstItem="mAY-dC-Kv6" firstAttribute="top" secondItem="DK7-Fh-4zB" secondAttribute="bottom" constant="129" id="OQt-r9-bkV"/>
+                <constraint firstItem="DK7-Fh-4zB" firstAttribute="centerX" secondItem="thA-8A-607" secondAttribute="centerX" id="aWL-tC-tQW"/>
+                <constraint firstItem="03q-PO-zSI" firstAttribute="top" secondItem="782-uu-bbI" secondAttribute="bottom" constant="8" symbolic="YES" id="asU-ih-buE"/>
+                <constraint firstItem="thA-8A-607" firstAttribute="top" secondItem="03q-PO-zSI" secondAttribute="bottom" constant="8" symbolic="YES" id="dvf-Ed-W23"/>
+                <constraint firstItem="DK7-Fh-4zB" firstAttribute="top" secondItem="thA-8A-607" secondAttribute="bottom" constant="43" id="k2F-cf-MOW"/>
+                <constraint firstItem="782-uu-bbI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="liz-1t-tnk"/>
+                <constraint firstItem="782-uu-bbI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="147" id="nGi-Ob-vHK"/>
+            </constraints>
             <point key="canvasLocation" x="95.652173913043484" y="152.67857142857142"/>
         </view>
     </objects>
