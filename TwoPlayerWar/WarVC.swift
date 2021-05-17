@@ -95,10 +95,10 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
         p2CardIV.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         p2CardIV.image = .none
         
-        //adBanner.adUnitID = "ca-app-pub-3940256099942544/2934735716"    // TEST ADS!!! Replace with actual id
-        //adBanner.rootViewController = self
-        //adBanner.delegate = self
-        //adBanner.load(GADRequest())
+        adBanner.adUnitID = "ca-app-pub-3940256099942544/2934735716"    // TEST ADS!!! Replace with actual id
+        adBanner.rootViewController = self
+        adBanner.delegate = self
+        adBanner.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -218,7 +218,6 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
                 p1PlusWarCardsLabel.text = "+\(numberOfWarCards - 3)"
                 p1PlusWarCardsLabel.isHidden = false
             }
-            //p1PlusWarCardsLabel.isHidden = false
             
             // add the first three to the war cards stack of image views (and to the 'pot')
             var cardsToAdd = numberOfWarCards       // set via options
@@ -233,18 +232,6 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 1"); break; }
             }
-            
-            // NOT NECESSARY?
-            // add the rest of the war cards to the 'pot'
-//            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
-//            while cardsToAdd > 0 {
-//                if let nextCard = player1.popLast() {
-//                    warCards.append(nextCard)
-//                    extraWarCards += 1
-//                    p1PlusWarCardsLabel.text = "+\(numberOfWarCards)"
-//                    cardsToAdd -= 1
-//                } else { gameOver(for: "Player 1") }
-//            }
             
             // gotta have one left over as the battle card
             if let nextCard = player1.popLast() {
@@ -281,17 +268,6 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
                     cardsToAdd -= 1
                 } else { gameOver(for: "Player 2"); break; }
             }
-            
-            // add the rest of the war cards to the 'pot'
-//            var extraWarCards = (previousWarCards > 0) ? previousWarCards : 0
-//            while cardsToAdd > 0 {
-//                if let nextCard = player2.popLast() {
-//                    warCards.append(nextCard)
-//                    extraWarCards += 1
-//                    p2PlusWarCardsLabel.text = "+\(numberOfWarCards)"
-//                    cardsToAdd -= 1
-//                } else { gameOver(for: "Player 2") }
-//            }
             
             // gotta have one left over as the battle card
             if let nextCard = player2.popLast() {
@@ -386,23 +362,6 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
         player2Area.cardsLeft = String(player2.count)
         player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         
-//        if warIsOver {
-//            p1DidPlayWar = false
-//            p2DidPlayWar = false
-//            p1PlusWarCardsLabel.isHidden = true
-//            p2PlusWarCardsLabel.isHidden = true
-//            warIsOver = false
-//            isWar = false
-//
-//            for view in p1WarCardsStack.arrangedSubviews {
-//                let imageView = view as! UIImageView
-//                imageView.image = .none
-//            }
-//            for view in p2WarCardsStack.arrangedSubviews {
-//                let imageView = view as! UIImageView
-//                imageView.image = .none
-//            }
-//        }
         p1DidPlayWar = false
         p2DidPlayWar = false
         p1PlusWarCardsLabel.isHidden = true
