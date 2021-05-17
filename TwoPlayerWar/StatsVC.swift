@@ -45,8 +45,8 @@ class StatsVC: UIViewController {
             label.text = String(currentStats[currentStat])
             currentStat += 1
         }
-        var overallRecordLabel = p1StatsValuesStack.arrangedSubviews.last as! UILabel
-        overallRecordLabel.text = "? ? ?"
+        //var overallRecordLabel = p1StatsValuesStack.arrangedSubviews.last as! UILabel
+        //overallRecordLabel.text = "? ? ?"
         
         let p2WinLoseLabel = p2StatsStack.arrangedSubviews.first as! UILabel
         p2WinLoseLabel.text = (stats.winner == "Player 2") ? "WIN!" : "LOSE!"
@@ -59,8 +59,8 @@ class StatsVC: UIViewController {
             label.text = String(currentStats[currentStat])
             currentStat += 1
         }
-        overallRecordLabel = p2StatsValuesStack.arrangedSubviews.last as! UILabel
-        overallRecordLabel.text = "? ? ?"
+        //overallRecordLabel = p2StatsValuesStack.arrangedSubviews.last as! UILabel
+        //overallRecordLabel.text = "? ? ?"
     }
 
     @IBAction func playAgain() {
