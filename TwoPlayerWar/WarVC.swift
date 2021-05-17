@@ -386,22 +386,37 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
         player2Area.cardsLeft = String(player2.count)
         player2Area.totalCardsWonLabel.text = String(stats.p2TotalCardsWon)
         
-        if warIsOver {
-            p1DidPlayWar = false
-            p2DidPlayWar = false
-            p1PlusWarCardsLabel.isHidden = true
-            p2PlusWarCardsLabel.isHidden = true
-            warIsOver = false
-            isWar = false
-            
-            for view in p1WarCardsStack.arrangedSubviews {
-                let imageView = view as! UIImageView
-                imageView.image = .none
-            }
-            for view in p2WarCardsStack.arrangedSubviews {
-                let imageView = view as! UIImageView
-                imageView.image = .none
-            }
+//        if warIsOver {
+//            p1DidPlayWar = false
+//            p2DidPlayWar = false
+//            p1PlusWarCardsLabel.isHidden = true
+//            p2PlusWarCardsLabel.isHidden = true
+//            warIsOver = false
+//            isWar = false
+//
+//            for view in p1WarCardsStack.arrangedSubviews {
+//                let imageView = view as! UIImageView
+//                imageView.image = .none
+//            }
+//            for view in p2WarCardsStack.arrangedSubviews {
+//                let imageView = view as! UIImageView
+//                imageView.image = .none
+//            }
+//        }
+        p1DidPlayWar = false
+        p2DidPlayWar = false
+        p1PlusWarCardsLabel.isHidden = true
+        p2PlusWarCardsLabel.isHidden = true
+        warIsOver = false
+        isWar = false
+        
+        for view in p1WarCardsStack.arrangedSubviews {
+            let imageView = view as! UIImageView
+            imageView.image = .none
+        }
+        for view in p2WarCardsStack.arrangedSubviews {
+            let imageView = view as! UIImageView
+            imageView.image = .none
         }
         
         p1CardIV.image = .none
@@ -428,8 +443,6 @@ class WarVC: UIViewController, PlayButtonDelegate, OptionsDelegate, GADBannerVie
         
         let statsVC = StatsVC(stats: stats)
         statsVC.warVCRef = self
-        
-        playAgain()
         
         present(statsVC, animated: true)
     }

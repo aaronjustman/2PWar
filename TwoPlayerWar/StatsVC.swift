@@ -64,7 +64,9 @@ class StatsVC: UIViewController {
     }
 
     @IBAction func playAgain() {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.warVCRef.playAgain()
+        }
     }
 
     /*

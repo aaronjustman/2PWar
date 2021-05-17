@@ -1,10 +1,5 @@
 
 Bugs:
-- Table not being cleared on new game or game reset (war cards stacks, plus cards labels).
-- Make sure total cards won is still being tallied correctly.
-- Change text on OptionsVC to black.
-- Change Cancel button to 'OK!'
-- Set constraints for the OptionsVC.
 
 Current:
 
